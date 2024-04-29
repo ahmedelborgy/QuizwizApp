@@ -16,4 +16,11 @@ export class AuthService {
   }
 
 
+  onLogin(data: any): Observable<any> {
+
+
+    console.log(data);
+
+    return this._HttpClient.post(`auth/login`, data);
+  }
 }
