@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 export class GlobalInterceptor implements HttpInterceptor {
 
   constructor() {}
-
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
    
     const token = localStorage.getItem('userToken');    
