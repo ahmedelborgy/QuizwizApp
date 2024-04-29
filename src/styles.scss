@@ -37,3 +37,45 @@ $QuizwizApp-theme: mat.define-light-theme((
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// *SECTION
+
+
+
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+
+}
+
+
+a,i,button,image ,input{
+  cursor: pointer;
+}
+
+
+.d-center{
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+
+// *colors
+
+$mainColor_dark:#0D1321;
+$mainColor_light:#FFEDDF;
+$mainColor_lightGreen:#C5D86D;
+
+// ^_utilities
+
+.bg-mainColor_dark {
+  background-color: $mainColor_dark;
+}
+.bg-mainColor_light {
+  background-color: $mainColor_light;
+}
+.bg-mainColor_lightGreen {
+  background-color: $mainColor_lightGreen;
+}
