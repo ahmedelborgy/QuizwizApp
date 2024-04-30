@@ -1,13 +1,145 @@
-<section class="">
-  <div class="container-fluid h-75 p-4">
-    <div class="row h-75">
-      <div class="col-12 col-md-6">
-        Lorem ipsum doto dolores quo ullam distinctio!
+<section class="bg-mainColor_dark">
+  <div class="container-fluid p-4 pe-5">
+    <div class="row">
+      <div class="col-12 col-md-7 col-lg-6 pe-0 pe-md-5">
+        <div class="">
+          <img src="../../../../../assets/images/Logo-white.svg" class="w-25" alt="">
+        </div>
+        <h2 class="text-mainColor_lightGreen my-4">Continue your learning journey with QuizWiz!</h2>
+        <div class="my-1 mb-3">
+
+          <button class="Sign me-5"><i class="fa-solid fa-user d-block py-2"></i> Sign In</button>
+
+          <button class="Sign"><i class="fa-solid fa-user-plus d-block py-2"></i> Sign Up</button>
+
+        </div>
+        <form [formGroup]="RegisterForm" (ngSubmit)="handleForm(RegisterForm)" class="w-100">
+          <div class="d-flex gap-5">
+            <div class="form-item w-100">
+              <label for="first_name" class="text-white">Your First Name</label>
+              <div class="input-group mb-3 custom-input">
+                <span class="input-group-text px-3 py-3 bg-transparent text-white" id="basic-addon1"><i
+                    class="fa-solid fa-user text-white"></i></span>
+                <div class="y-line my-auto"></div>
+                <input type="text" class="form-control rounded-end py-1 bg-transparent text-white"
+                  placeholder=" Enter your first name" aria-label="first_name" aria-describedby="basic-addon1"
+                  formControlName="first_name">
+              </div>
+              <div *ngIf="RegisterForm.get('first_name')?.errors && RegisterForm.get('first_name')?.touched"
+                class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
+                <mat-error class="text-red" *ngIf="RegisterForm.get('first_name')?.getError('required')">First name is
+                  Required</mat-error>
+                <mat-error class="text-red p-0 block" *ngIf="RegisterForm.get('first_name')?.getError('minlength')">Min
+                  length 3</mat-error>
+                <mat-error class="text-red p-0 block" *ngIf="RegisterForm.get('first_name')?.getError('maxlength')">Max
+                  length 10</mat-error>
+              </div>
+            </div>
+            <div class="form-item w-100">
+              <label for="first_name" class="text-white">Your Last Name</label>
+
+              <div class="input-group mb-3 custom-input">
+                <span class="input-group-text px-3 py-3 bg-transparent text-white" id="basic-addon1"><i
+                    class="fa-solid fa-user"></i></span>
+                <div class="y-line my-auto"></div>
+                <input type="text" class="form-control rounded-end py-1 bg-transparent text-white"
+                  placeholder=" Enter your last name" aria-label="last_name" aria-describedby="basic-addon1"
+                  formControlName="last_name">
+              </div>
+              <div *ngIf="RegisterForm.get('last_name')?.errors && RegisterForm.get('last_name')?.touched"
+                class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
+                <mat-error class="text-red" *ngIf="RegisterForm.get('last_name')?.getError('required')">Last name is
+                  Required</mat-error>
+                <mat-error class="text-red p-0 block" *ngIf="RegisterForm.get('last_name')?.getError('minlength')">Min
+                  length 3</mat-error>
+                <mat-error class="text-red p-0 block" *ngIf="RegisterForm.get('last_name')?.getError('maxlength')">Max
+                  length 10</mat-error>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-item w-100">
+            <label for="email" class="text-white">Your Email Address</label>
+            <div class="input-group mb-3 custom-input">
+              <span class="input-group-text px-3 py-3 bg-transparent text-white" id="basic-addon1"><i
+                  class="fa-solid fa-envelope"></i></span>
+              <div class="y-line my-auto"></div>
+              <input type="email" class="form-control rounded-end py-1 bg-transparent text-white"
+                placeholder=" Enter your first name" aria-label="email" aria-describedby="basic-addon1"
+                formControlName="email">
+            </div>
+            <div *ngIf="RegisterForm.get('email')?.errors && RegisterForm.get('email')?.touched"
+              class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
+              <mat-error class="text-red" *ngIf="RegisterForm.get('email')?.getError('required')">Email is
+                required</mat-error>
+              <mat-error class="text-red p-0 block" *ngIf="RegisterForm.get('email')?.getError('email')">email isn't
+                Validator</mat-error>
+            </div>
+          </div>
+
+          <div class="form-item w-100">
+            <label for="dropdown" class="text-white"> Select Your Role </label>
+            <div class="input-group mb-3 custom-input">
+              <span class="input-group-text px-3 py-3 bg-transparent" id="basic-addon2">
+
+                <i class="fa-solid fa-users-viewfinder text-white"></i>
+              </span>
+              <div class="y-line my-auto"></div>
+              <select class="form-select rounded-end py-1 bg-mainColor_dark text-white pointer" formControlName="role">
+                <option selected> Student</option>
+                <option> Instructor</option>
+              </select>
+              <!-- <i class="fa-solid fa-arrow-down text-white"></i> -->
+            </div>
+            <div *ngIf="RegisterForm.get('role')?.errors && RegisterForm.get('role')?.touched"
+              class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
+              <mat-error class="text-red" *ngIf="RegisterForm.get('role')?.getError('required')">role is
+                required</mat-error>
+            </div>
+          </div>
+
+
+          <div class="form-item w-100">
+            <label for="email" class="text-white">Your Password Address</label>
+            <div class="input-group mb-3 custom-input">
+              <span class="input-group-text px-3 py-3 bg-transparent text-white" id="basic-addon1"><i
+                  class="fa-solid fa-key"></i></span>
+              <div class="y-line my-auto"></div>
+              <input type="password" class="form-control rounded-end py-1 bg-transparent text-white"
+                placeholder=" Enter your password" aria-label="password" aria-describedby="basic-addon1"
+                formControlName="password">
+            </div>
+            <div *ngIf="RegisterForm.get('password')?.errors && RegisterForm.get('password')?.touched"
+              class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
+              <mat-error class="text-red" *ngIf="RegisterForm.get('password')?.getError('required')">password is
+                required</mat-error>
+              <mat-error class="text-red p-0 block" *ngIf="RegisterForm.get('password')?.getError('pattern')">password
+                isn't
+                Validator</mat-error>
+            </div>
+          </div>
+
+          <!-- <button class="btn-flip" data-back="Back" data-front="Front" type="submit"> Sign Up</button> -->
+          <div class="col-md-12 d-flex justify-content-start align-items-center">
+            <button [disabled]="!RegisterForm.valid" class="submit" type="submit">
+              <span class="text me-1">Sign up</span><span><i class="fa-solid  fa-circle-check"></i></span>
+            </button>
+
+          </div>
+
+        </form>
+
+
       </div>
 
-      <div class="d-none d-md-block col-md-6 ">
-        <img src="../../../../../assets/images/Image.png" class="w-100" alt="">
+
+      <div
+        class="col-md-5 col-lg-6 border rounded-5 d-none d-md-flex bg-mainColor_light justify-content-center align-items-center">
+        <div class="w-75">
+          <img src="../../../../../assets/images/Auth_Image.svg" class="w-100" alt="">
+        </div>
       </div>
+
     </div>
   </div>
 </section>
