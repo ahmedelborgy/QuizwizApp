@@ -1,0 +1,30 @@
+
+@import "./colors";
+
+.pointer {
+  cursor: pointer;
+}
+
+.bg-mainColor_dark {
+  background-color: $mainColor_dark;
+}
+.bg-mainColor_light {
+  background-color: $mainColor_light;
+}
+.bg-mainColor_lightGreen {
+  background-color: $mainColor_lightGreen;
+}
+
+.text-mainColor_dark {
+  color: $mainColor_dark;
+}
+.text-mainColor_light {
+  color: $mainColor_light;
+}
+.text-mainColor_lightGreen {
+  color: $mainColor_lightGreen;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
