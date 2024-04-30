@@ -64,4 +64,15 @@
   padding: 10px 15px;
   border-radius: 15px;
   color: $mainColor_dark;
+  transition: 1s ease;
+  border: #fff 3px solid;
+
+
+  &:hover {
+  background-color: $mainColor_lightGreen;
+  border: #fff 3px solid;
+  span.text.me-1{
+  display: none;
+  }
+  }
 }
