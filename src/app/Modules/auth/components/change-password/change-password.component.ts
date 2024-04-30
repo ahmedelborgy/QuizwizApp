@@ -1,10 +1,14 @@
+
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../service/auth.service';
 import { RegxPassword } from '../login/login.component';
+
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
+const RegxPassword: RegExp = /^(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z])(?=\D*\d).{8,20}$/;
+
 
 @Component({
   selector: 'app-change-password',
@@ -12,6 +16,7 @@ import { RegxPassword } from '../login/login.component';
   styleUrls: ['./change-password.component.scss']
 })
 export class ChangePasswordComponent {
+
 
   // hidePass = true;
   // password_type: string = 'text';
@@ -64,4 +69,35 @@ export class ChangePasswordComponent {
   //   this.see = !this.see;
   //   this.password_type = this.see ? 'text' : 'password';
   // }
+
+  constructor(private _AuthService:AuthService, private __ToastrService:ToastrService, private _Router:Router){}
+
+  changePasswordForm = new FormGroup({
+    password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)]),
+    password_new: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)])
+  })
+
+  onSubmit(data:FormGroup){
+    this._AuthService.onChangePassword(data.value).subscribe({
+      next:(res)=>{
+       console.log(res);
+       
+      },
+      error:(err:any)=>{
+        this.__ToastrService.error(err.message, 'Error ! ');
+      },
+      complete:()=>{
+        
+        this.__ToastrService.success('Your Password Changed Successfully','Success')
+        this._Router.navigate(['/auth/login'])
+
+
+      }
+    })
+  }
+
+
+
+
+
 }
