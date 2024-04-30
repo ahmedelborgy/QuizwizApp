@@ -15,5 +15,15 @@ export class AuthService {
     return this._HttpClient.post('auth/register', data)
   }
 
+  onChangePassword(data: object): Observable<any> {
+    return this._HttpClient.post('auth/change-password', data)
+  }
 
+  onForgotPassword(data: object): Observable<any> {
+    return this._HttpClient.post('auth/forgot-password', data)
+  }
+
+  onResetPassword(data: object): Observable<any> {
+    return this._HttpClient.post('auth/reset-password', data)
+  }
 }
