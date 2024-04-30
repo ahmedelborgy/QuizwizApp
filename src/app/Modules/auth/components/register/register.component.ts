@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-export const RegxPassword: RegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+export const RegxPassword: RegExp = /^[a-zA-Z0-9]{3,30}$/;
 
 
 @Component({
@@ -20,8 +20,8 @@ export class RegisterComponent {
   see: boolean = true;
 
 
-  constructor(private _AuthService: AuthService, 
-    private _ToastrService: ToastrService, 
+  constructor(private _AuthService: AuthService,
+    private _ToastrService: ToastrService,
     private _Router: Router, public _MatDialog: MatDialog) { }
 
   RegisterForm: FormGroup = new FormGroup({
@@ -29,8 +29,8 @@ export class RegisterComponent {
     last_name: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.minLength(3)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     password: new FormControl(null, [Validators.required, Validators.pattern(RegxPassword), Validators.maxLength(20), Validators.minLength(8)]),
-   
-   
+
+
     role: new FormControl(null, [Validators.required]),
   })
 
