@@ -9,7 +9,8 @@
   width: 49.5%;
 }
 
-.Sign {
+
+  button.Sign {
   padding: 10px 30px;
   font-weight: 700;
   color: #fff;
@@ -19,8 +20,8 @@
   background-color: #333333;
 
   i {
-   font-size: 40px;
-    }
+  font-size: 40px;
+  }
 
 
   &:hover {
@@ -29,9 +30,32 @@
     color:$mainColor_lightGreen;
     }
   }
+
+.SignActive {
+  border: $mainColor_lightGreen solid 4px;
+  i {
+  color:$mainColor_lightGreen;
+  }
+  }
+
 }
 
-// *
+// Define the keyframes for the animation
+@keyframes upAndDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-40px);
+  }
+}
+
+// Apply the animation to the image container
+#image-container {
+  animation: upAndDown 3s ease infinite; // Adjust duration and easing as needed
+}
+
+
 
 .submit {
   font-size: 20px;

@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../service/auth.service';
+
+
 export const RegxPassword: RegExp = /^[a-zA-Z0-9]{3,30}$/;
 
 

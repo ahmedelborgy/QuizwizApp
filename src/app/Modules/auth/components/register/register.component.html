@@ -9,9 +9,11 @@
         <div class="my-1 mb-3">
 
 
-          <button class="Sign me-5"><i class="fa-solid fa-user d-block py-2"></i> Sign In</button>
+          <button class="Sign me-5" routerLink="/auth/login"><i class="fa-solid fa-user d-block py-2"></i> Sign
+            In</button>
 
-          <button class="Sign"><i class="fa-solid fa-user-plus d-block py-2"></i> Sign Up</button>
+          <button class="Sign" routerLink="/auth/register"><i class="fa-solid fa-user-plus d-block py-2"></i> Sign
+            Up</button>
 
         </div>
         <form [formGroup]="RegisterForm" (ngSubmit)="handleForm(RegisterForm)" class="w-100">
@@ -149,7 +151,7 @@
 
       <div
         class="col-md-5 col-lg-6 border rounded-5 d-none d-md-flex bg-mainColor_light justify-content-center align-items-center">
-        <div class="w-75">
+        <div class="w-75" id="image-container">
           <img src="../../../../../assets/images/Auth_Image.svg" class="w-100" alt="">
         </div>
       </div>
