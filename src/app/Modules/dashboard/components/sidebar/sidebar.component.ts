@@ -13,21 +13,21 @@ export class SidebarComponent {
   Menu: any[] = [
     {
 
-      text: 'Home',
+      text: 'Dashboard',
       link: '/admin/home',
       icon: 'fa-solid fa-house',
       // isActive: this.isAdmin() || this.isUser() ,
     },
     {
 
-      text: 'Users',
+      text: 'Students',
       link: '/admin/users',
       icon: 'fa-solid fa-users',
       // isActive: this.isAdmin()  ,
     },
     {
 
-      text: 'Rooms',
+      text: 'Quizes',
       link: '/admin/room',
       icon: "fa-solid fa-hotel",
       // isActive: this.isAdmin()  ,
@@ -35,21 +35,21 @@ export class SidebarComponent {
 
     {
 
-      text: 'Ads',
+      text: 'Results',
       link: '/admin/ads',
       icon: "fa-solid fa-calendar-days",
       // isActive: this.isAdmin()  ,
     },
+    // {
+
+    //   text: 'Groups',
+    //   link: '/admin/room-facility',
+    //   icon: "fa-solid fa-cubes-stacked",
+    //   // isActive: this.isAdmin()  ,
+    // },
     {
 
-      text: 'Room Facility',
-      link: '/admin/room-facility',
-      icon: "fa-solid fa-cubes-stacked",
-      // isActive: this.isAdmin()  ,
-    },
-    {
-
-      text: 'Booking',
+      text: 'Groups',
       link: '/admin/booking',
       icon: 'fa-solid fa-users',
       // isActive: this.isUser(),
