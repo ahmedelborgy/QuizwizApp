@@ -33,7 +33,7 @@ export class ResetPasswordComponent {
   handleForm(data: FormGroup) {
     let userData = data.value;
     if (this.resetPassword.valid) {
-      this._AuthService.onRegister(userData).subscribe(
+      this._AuthService.onResetPassword(userData).subscribe(
         {
           next: (res) => {
             console.log(res)

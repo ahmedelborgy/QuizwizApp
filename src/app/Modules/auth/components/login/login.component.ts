@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../service/auth.service';
+import { IProfile } from 'src/app/core/model/Iprofile';
 
 
 export const RegxPassword: RegExp = /^[a-zA-Z0-9]{3,30}$/;
@@ -20,6 +21,17 @@ export class LoginComponent implements OnInit {
   password_type: string = 'text';
   see: boolean = true;
   is_Massage: string = '';
+  profile: IProfile = {
+    _id: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    status: 'active',
+    role: 'Instructor',
+    group: ''
+  };
+
+
 
   constructor(private _AuthService: AuthService,
     private _ToastrService: ToastrService,
@@ -42,10 +54,18 @@ export class LoginComponent implements OnInit {
       this._AuthService.onLogin(loginForm.value).subscribe({
 
         next: (res) => {
-          console.log(res);
 
-          localStorage.setItem('token', res.data.refreshToken);
+          console.log(res);
+          this.profile = res.data.profile;
+          localStorage.setItem('token', res.data.accessToken);
+          localStorage.setItem('name', `${this.profile.first_name} ${this.profile.last_name}`);
+          localStorage.setItem('email', this.profile.email);
+          localStorage.setItem('group', this.profile.group);
+
           this.is_Massage = res.message;
+          this._AuthService.getProfile();
+
+          this._ToastrService.success(res.data.profile.first_name, 'Welcome');
         },
         error: (err) => {
           console.log(err);
@@ -53,7 +73,7 @@ export class LoginComponent implements OnInit {
         },
         complete: () => {
           console.log('login completed');
-          this._ToastrService.success(`${this.is_Massage}`)
+          // this._ToastrService.success(`${this.is_Massage}`)
           this._Router.navigate(['/dashboard'])
 
         },

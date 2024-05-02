@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  name: string | any = localStorage.getItem('name');
+  role: string | any = localStorage.getItem('role');
+
 }

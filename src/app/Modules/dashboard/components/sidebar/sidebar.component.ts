@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/Modules/auth/service/auth.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -6,55 +7,73 @@ import { Component } from '@angular/core';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
-  
+
   isOpened: boolean = true;
 
-  
+  constructor(private _AuthService: AuthService) { }
+
+
+  isStudent(): boolean {
+    return this._AuthService.role == 'Student' ? true : false;
+  }
+
+  isInstructor(): boolean {
+    return this._AuthService.role == 'Instructor' ? true : false;
+  }
+
+
+
+
   Menu: any[] = [
-    {
 
+    {
       text: 'Dashboard',
-      link: '/admin/home',
+      link: '/dashboard/home',
       icon: 'fa-solid fa-house',
-      // isActive: this.isAdmin() || this.isUser() ,
-    },
-    {
-
-      text: 'Students',
-      link: '/admin/users',
-      icon: 'fa-solid fa-users',
-      // isActive: this.isAdmin()  ,
-    },
-    {
-
-      text: 'Quizes',
-      link: '/admin/room',
-      icon: "fa-solid fa-hotel",
-      // isActive: this.isAdmin()  ,
+      isActive: this.isInstructor(),
     },
 
-    {
-
-      text: 'Results',
-      link: '/admin/ads',
-      icon: "fa-solid fa-calendar-days",
-      // isActive: this.isAdmin()  ,
-    },
     // {
-
-    //   text: 'Groups',
-    //   link: '/admin/room-facility',
-    //   icon: "fa-solid fa-cubes-stacked",
-    //   // isActive: this.isAdmin()  ,
+    //   text: 'Students',
+    //   link: '/dashboard/instructor/students',
+    //   icon: 'fa-solid fa-users',
+    //   isActive: this.isInstructor(),
     // },
-    {
 
-      text: 'Groups',
-      link: '/admin/booking',
-      icon: 'fa-solid fa-users',
-      // isActive: this.isUser(),
+    {
+      text: 'Quizes',
+      link: '/dashboard/instructor/quizzes',
+      icon: "fa-solid fa-hotel",
+      isActive: this.isInstructor(),
     },
 
+    {
+      text: 'Quizes',
+      link: '/dashboard/student/quizzes',
+      icon: "fa-solid fa-hotel",
+      isActive: this.isStudent(),
+    },
+
+    {
+      text: 'Results',
+      link: '/dashboard/instructor/results',
+      icon: "fa-solid fa-calendar-days",
+      isActive: this.isInstructor(),
+    },
+
+    {
+      text: 'Results',
+      link: '/dashboard/student/results',
+      icon: "fa-solid fa-calendar-days",
+      isActive: this.isStudent(),
+    },
+
+    {
+      text: 'Groups',
+      link: '/dashboard/instructor/groups',
+      icon: 'fa-solid fa-users',
+      isActive: this.isInstructor(),
+    },
 
   ]
 }
