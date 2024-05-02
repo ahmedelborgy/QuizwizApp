@@ -8,6 +8,18 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
   
   isOpened: boolean = true;
+openArrow:any;
+
+
+constructor(){
+  this.openArrow=localStorage.setItem('arrow',`${this.isOpened}`);
+}
+
+isOpendA(){
+  console.log(this.isOpened);
+  this.openArrow=localStorage.setItem('arrow',`${this.isOpened}`);
+
+}
 
   
   Menu: any[] = [

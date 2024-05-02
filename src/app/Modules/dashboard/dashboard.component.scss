@@ -12,16 +12,11 @@
 
 }
 .myNav{
-    background-color: yellow !important;
     padding-left: -20px;
     padding-right: -20px;
 }
+.sid{
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+
 }
-// .row>* {
-//     flex-shrink: 0;
-//     width: 100%;
-//     max-width: 100%;
-//     padding-right: calc(var(--bs-gutter-x)* .5);
-//     padding-left: calc(var(--bs-gutter-x)* .5);
-//     margin-top: var(--bs-gutter-y);
-// }
+}
