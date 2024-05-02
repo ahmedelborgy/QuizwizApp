@@ -33,7 +33,7 @@ export class ForgotPasswordComponent {
   handleForm(data: FormGroup) {
     let userData = data.value;
     if (this.forgotPassword.valid) {
-      this._AuthService.onRegister(userData).subscribe(
+      this._AuthService.onForgotPassword(userData).subscribe(
         {
           next: (res) => {
             console.log(res)

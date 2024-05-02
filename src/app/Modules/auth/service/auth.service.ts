@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
 
 
@@ -8,7 +9,34 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  constructor(private _HttpClient: HttpClient) { }
+  role: string | any = '';
+
+
+  constructor(private _HttpClient: HttpClient) {
+    if (localStorage.getItem('token') !== null) {
+      this.getProfile()
+    }
+  }
+
+  getProfile() {
+    let encoded: any = localStorage.getItem('token');
+    let decoded: any = jwtDecode(encoded);
+    console.log(decoded);
+    console.log(decoded.role);
+    localStorage.setItem('role', decoded.role);
+    localStorage.setItem('email', decoded.email);
+    localStorage.setItem('Id', decoded.sub);
+    this.getRole();
+  }
+
+  getRole() {
+    if (localStorage.getItem('token') !== null
+      &&
+      localStorage.getItem('role')) {
+      this.role = localStorage.getItem('role')
+    }
+  }
+
 
 
   onRegister(data: object): Observable<any> {

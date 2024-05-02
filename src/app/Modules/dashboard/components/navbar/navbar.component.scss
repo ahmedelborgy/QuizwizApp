@@ -1,45 +1,40 @@
+@import'../../../../../assets/styles/layout';
+
 #navBar{
 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
+// padding: 1.5rem;
+height: 80px;
 
 img{
 vertical-align:sub;
 }
-.navItemA{
-border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-border-right: 1px solid rgba(0, 0, 0, 0.2);
-
-
-
-}
+// .navItemA{
+// border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+// border-right: 1px solid rgba(0, 0, 0, 0.2);
+// }
 .navCaption{
- 
-
 border: 1px solid rgba(0, 0, 0, 0.2);
 border-radius: 30px;
-
+}
 }
 
 
-.navProfiole{
-    // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
+.vertical-line {
+  width: .5px; /* Width of the line */
+  height: 80px; /* Height of the line */
+  background-color: rgb(167, 167, 167); /* Color of the line */
 }
 
+.w-65 {
+  width: 65%;
+}
+
+.w-35 {
+  width: 35%;
 }
 
 
-/* new quiz span */
-
-// box-sizing: border-box;
-
-// position: absolute;
-// width: 150px;
-// height: 40px;
-// left: 610px;
-// top: 25px;
-
-// background: #FFFFFF;
-// border: 1px solid rgba(0, 0, 0, 0.2);
-// border-radius: 30px;
+.name {
+  font-size: 19px;
+}

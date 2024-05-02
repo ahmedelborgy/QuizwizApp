@@ -41,7 +41,7 @@ export class ChangePasswordComponent {
     if (changePasswordForm.valid) {
 
 
-      this._AuthService.onLogin(changePasswordForm.value).subscribe({
+      this._AuthService.onChangePassword(changePasswordForm.value).subscribe({
 
         next: (res) => {
           console.log(res);
