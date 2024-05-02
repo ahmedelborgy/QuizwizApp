@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+myArrow:string|any=localStorage.getItem('arrow');
+
+constructor(){
+console.log(this.myArrow);
+
+
+
+}
+
+
 
 }
