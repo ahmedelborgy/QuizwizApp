@@ -2,17 +2,13 @@
 
 #navBar{
 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-// padding: 1.5rem;
 height: 80px;
 
 img{
 vertical-align:sub;
 }
 
-// .navItemA{
-// border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-// border-right: 1px solid rgba(0, 0, 0, 0.2);
-// }
+
 .navCaption{
 border: 1px solid rgba(0, 0, 0, 0.2);
 border-radius: 30px;
@@ -21,20 +17,28 @@ border-radius: 30px;
 
 
 .vertical-line {
-  width: .5px; /* Width of the line */
-  height: 80px; /* Height of the line */
-  background-color: rgb(167, 167, 167); /* Color of the line */
+  width: .5px;
+  height: 80px;
+  background-color: rgb(167, 167, 167);
 }
 
 .w-65 {
-  width: 65%;
+  width: 55%;
 }
 
 .w-35 {
   width: 35%;
 }
 
-
 .name {
   font-size: 19px;
+}
+
+.navIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i{
+    scale: 2.5;
+  }
 }

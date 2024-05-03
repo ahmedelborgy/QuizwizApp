@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
 
@@ -12,7 +13,7 @@ export class AuthService {
   role: string | any = '';
 
 
-  constructor(private _HttpClient: HttpClient) {
+  constructor(private _HttpClient: HttpClient, private _Router: Router) {
     if (localStorage.getItem('token') !== null) {
       this.getProfile()
     }
@@ -57,11 +58,14 @@ export class AuthService {
   }
 
   onLogin(data: any): Observable<any> {
-
-
     console.log(data);
-
     return this._HttpClient.post(`auth/login`, data);
-
   }
+
+
+  logout() {
+    localStorage.clear();
+    this._Router.navigate(['auth/login'])
+  }
+
 }
