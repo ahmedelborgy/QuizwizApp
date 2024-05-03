@@ -3,15 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { GroupsRoutingModule } from './groups-routing.module';
 import { GroupsComponent } from './groups.component';
+import { AddEditGropuComponent } from './component/add-edit-gropu/add-edit-gropu.component';
+import { SharedModule } from 'src/app/Modules/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    GroupsComponent
+    GroupsComponent,
+    AddEditGropuComponent
   ],
   imports: [
     CommonModule,
-    GroupsRoutingModule
+    GroupsRoutingModule,
+    SharedModule
   ]
 })
 export class GroupsModule { }
