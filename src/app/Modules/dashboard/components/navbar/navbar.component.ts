@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/Modules/auth/service/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +8,13 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
+  constructor(private _AuthService: AuthService) { }
+
   name: string | any = localStorage.getItem('name');
   role: string | any = localStorage.getItem('role');
 
+
+  logOut() {
+    this._AuthService.logout();
+  }
 }

@@ -74,6 +74,12 @@ export class SidebarComponent {
       icon: 'fa-solid fa-users',
       isActive: this.isInstructor(),
     },
+    {
+      text: 'Students',
+      link: '/dashboard/instructor/students',
+      icon: 'fa-solid fa-users',
+      isActive: this.isInstructor(),
+    },
 
   ]
 }
