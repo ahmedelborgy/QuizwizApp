@@ -16,7 +16,6 @@ export class GlobalInterceptor implements HttpInterceptor {
     const token = localStorage.getItem('token');
     console.log(token);
     
-    // https://upskilling-egypt.com:3005
     const baseUrl: string = 'https://upskilling-egypt.com:3005/api/';
     let newHeaders = {};
     if (token !== null) {
