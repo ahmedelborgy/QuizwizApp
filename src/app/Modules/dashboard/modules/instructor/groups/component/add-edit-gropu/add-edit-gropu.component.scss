@@ -1,0 +1,18 @@
+// @import "../../../../../assets/styles/layout";
+@import'../../../../../../../../assets/styles/_layout';
+#addEdit{
+    // background-color: tomato;
+    .header{
+        border-bottom: 1px solid #0000004D;
+    }
+    .corect, .close{
+        // border: 3px solid 0000004D;
+        // background-color: aquamarine;
+    
+    }
+    .corect{
+        border: 1px solid #0000004D;
+        border-bottom: none;
+    }
+
+}
