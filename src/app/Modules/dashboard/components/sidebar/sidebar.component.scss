@@ -32,13 +32,13 @@ ol, ul {
 
 .sidebar .linksModules {
   color:black;
-  padding: 2.2rem;
+  padding: 1.6rem;
   text-decoration: none;
   display: block;
   i {
     font-size: 30px;
     background-color: $mainColor_light;
-    padding: 6px;
+    padding: 10px;
     margin-right: 6px;
     border-radius: 5px;
   }
@@ -46,6 +46,32 @@ ol, ul {
       font-size: 18px;
       font-weight: 700;
   }
+
+  &:hover {
+    background-color: #efefef;
+    border-right: $mainColor_dark 4px solid;
+    i {
+      background-color: $mainColor_dark;
+      color: #fff;
+    }
+  }
+
+
+  &.active  {
+    // background-color: #efefef;
+    border-right: $mainColor_dark 4px solid;
+    i {
+      background-color: $mainColor_dark;
+      color: #fff;
+    }
+  }
+
+
+
 }
 
 
+.fa-regular {
+  font-size: 35px;
+  font-weight: 500;
+}
