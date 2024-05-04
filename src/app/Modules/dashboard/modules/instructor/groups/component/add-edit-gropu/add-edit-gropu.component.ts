@@ -35,7 +35,7 @@ tableStudents:any;
     private helperServ:HelperService,
   private _Router:Router,
     
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: any,
 
     
   ) {
@@ -44,6 +44,8 @@ console.log(this.topping);
 
   }
   ngOnInit(): void {
+    console.log(this.data);
+    
     this.allStudentsWithoutGroups();
   }
 
