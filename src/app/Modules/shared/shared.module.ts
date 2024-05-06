@@ -13,7 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
-
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
 
@@ -32,7 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
-    // HttpClientModule
+    NgSelectModule
   ],
   exports: [
     CommonModule,
@@ -48,6 +48,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
+    NgSelectModule
 
   ],
 })

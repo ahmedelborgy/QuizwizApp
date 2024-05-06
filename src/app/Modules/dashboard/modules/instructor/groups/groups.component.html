@@ -3,8 +3,9 @@
 <section  id="groubs" class="my-5 p-3">
     <section class="heder w-100 ">
 
-        <div (click)="openDialogAddEdit('add')" class="navCaption ms-auto  d-flex align-items-center justify-content-center  ">
-             <img src="../../../../../../assets/images/alert.png " class="d-inline-block mx-2" alt="">
+        <div (click)="openDialogAddEdit('add','')" class="navCaption ms-auto  d-flex align-items-center justify-content-center  ">
+             <img src="../../../../../../assets/images/alert.png " 
+             class="d-inline-block mx-2" alt="">
              <h6 class="m-2">Add Group</h6>
            </div>
      </section>
@@ -27,18 +28,15 @@
            <h5 class="pt-2">Group : {{item.name}}</h5> 
            <p>No. of students : {{item.students.length}}</p>
 
-
-           <!-- <p>groubId{{item._id}}</p>
-           <p>studId{{item.students[0]}}</p> -->
-           
-           
-           
         </div>
 
 
         <div class="cardicon w-25  d-flex justify-content-end" >
-            <i class="fa-solid fa-pen-to-square fs-4 mx-1 text-mainColor_lightGreen"></i>
-            <i class="fa-solid fa-trash-arrow-up fs-4 mx-1 text-danger"></i>
+            <i (click)="openDialogAddEdit('edit',item)"
+             class="fa-solid fa-pen-to-square fs-4 mx-1
+             text-mainColor_lightGreen"></i>
+            <i class="fa-solid fa-trash-arrow-up fs-4 mx-1 text-danger" 
+            (click)="openDialogAddEdit('delet',item)"></i>
 
 
         </div>
