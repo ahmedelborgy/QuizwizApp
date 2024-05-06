@@ -1,83 +1,200 @@
 
 
-
-<section id="addEdit">
-
-
-    <section class="header   d-flex justify-content-between px-3 align-items-center ">
-        <div class="w-50 ">
-            <h4>Set up a new Group</h4>
-               <p>{{data.action}}</p>
-        </div >
-
-        <div class="w-25  headIcone  d-flex justify-content-end ">
-         
-            <i  [mat-dialog-close]="data.animal" class="corect fa-solid fa-check fs-4 p-4"></i>
-            <i (click)="onNoClick()" class=" close fa-solid fa-xmark fs-4 p-4"></i>
-        </div>
-    </section>
+<!-- ----------------------------------------------- -->
 
 
-<mat-dialog-content >
-
-    
 
 
-    <form class="form-item "  [formGroup]="GroubForm">
-        <div class="input-group mb-3 custom-input">
-          <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
-           rounded-end-0 border border-1 border-end-0 bg-mainColor_light"
-            >
-            Group Name :
-        
+
+<form id="addEdit" *ngIf="data.action=='add' || data.action =='edit'" [formGroup]="GroubForm">
+
+
+  <section class="header   d-flex justify-content-between px-3 align-items-center ">
+    <div class="w-50 ">
+      <h4>Set up a new Group</h4>
+      <p>{{data.action}}</p>
+    </div>
+
+    <div class="w-25  headIcone  d-flex justify-content-end ">
+
+      <i [mat-dialog-close]="GroubForm.value" class="corect fa-solid fa-check fs-4 p-4">
+      </i>
+      <i (click)="onNoClick()" class=" close fa-solid fa-xmark fs-4 p-4"></i>
+    </div>
+  </section>
+
+
+  <mat-dialog-content>
+
+
+
+
+    <section class="form-item " >
+      <div class="input-group mb-3 custom-input">
+        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+           rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+          Group Name :
+
         </span>
-          <div class="y-line my-auto"></div>
-          <input  type="text" class="form-control  rounded-end py-1 bg-transparent
-            ps-3  border border-1"
-            placeholder="Group Name :" formControlName="name"
-           >
-        </div>
-        <div *ngIf="GroubForm.get('name')?.errors && GroubForm.get('name')?.touched"
-          class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
-          <mat-error class="text-red" *ngIf="GroubForm.get('name')?.getError('required')">name is
-            required</mat-error>
-          <mat-error class="text-red p-0 block" *ngIf="GroubForm.get('name')?.getError('name')"
-          >name isn't
-            Validator</mat-error>
-        </div>
+        <div class="y-line my-auto"></div>
+        <input type="text" class="form-control  rounded-end py-1 bg-transparent
+            ps-3  border border-1" placeholder="Group Name :"
+             formControlName="name">
+      </div>
+      <div *ngIf="GroubForm.get('name')?.errors && GroubForm.get('name')?.touched"
+        class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
+        <mat-error class="text-red" *ngIf="GroubForm.get('name')?.getError('required')">name is
+          required</mat-error>
+        <mat-error class="text-red p-0 block" *ngIf="GroubForm.get('name')?.getError('name')">name isn't
+          Validator</mat-error>
+      </div>
 
 
-       
+<!-- ================================== -->
 
-<div class="w-100 ">
+  
+<!--   
+      <div class="w-100 ">
 
-    <mat-form-field class="w-100">
+    <mat-form-field class="w-100" appearance="outline" >
         <mat-label>Toppings</mat-label>
-        <mat-select [formControl]="students" multiple  
-         [(ngModel)]="topping" >
+        <mat-select formControlName="students" multiple  
+         >
         
-          <mat-option  *ngFor="let topping of tableStudents"
-           [value]="topping._id" >{{topping.email}}</mat-option>
+          <mat-option *ngFor="let topping of tableStudents"
+           [value]="topping._id"  >{{topping.email}}</mat-option>
         </mat-select>
       </mat-form-field>
       
 
 </div>
+ -->
+
+<!-- ================================== -->
 
 
 
 
-        
-      </form>
+
+<!-- ------------------------- -->
 
 
-</mat-dialog-content>
-<mat-dialog-actions>
+<ng-select formControlName="students"
+appearance="outline"
+[selectOnTab]="true"
+placeholder="Emails : "
+ [(ngModel)]="selectedCar" [multiple]="true" 
+
+[searchable]="true">
+
+
+
+<ng-option class="bg-warning text-danger " *ngFor="let topping of tableStudents"
+   [value]="topping._id">{{topping.email}}</ng-option>
+
+
   
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button cdkFocusInitial  (click)="selectStudents(topping._id,GroubForm.value)" 
-   [mat-dialog-close]="action" >Ok</button>
-</mat-dialog-actions>
+
+
+
+  </ng-select>
+
+
+
+
+
+
+
+<!-- ng-option ng-option-selected ng-star-inserted -->
+
+
+
+<!-- ------------------------ -->
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </mat-dialog-content>
+  <!-- <mat-dialog-actions>
+
+    <button mat-button (click)="onNoClick()">No Thanks</button>
+    <button mat-button cdkFocusInitial (click)="selectStudents(topping._id,GroubForm.value)"
+      [mat-dialog-close]="action">Ok</button>
+  </mat-dialog-actions> -->
+
+
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------------------- -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- delet  -->
+
+<section class="container p-5" *ngIf="data.action=='delet'">
+  <a (click)="onNoClick()" class="d-block text-end my-pointer">
+    <i class="fa-regular fa-circle-xmark text-danger fa-2x"></i>
+  </a>
+
+  <div class=" text-center">
+    <img src="../../../../../../../../assets/images/no-data.png" class="w-25" alt="">
+    <h3>Delete This Group?
+      (<span class="fw-bold">{{data.item.name}}</span>)
+    </h3>
+    <p>are you sure you want to delete this item ? if you are sure just click on delete it</p>
+  </div>
+  <hr>
+  <div class="text-end my-2 ">
+    <button class="btn btn-outline-danger  p-2" [mat-dialog-close]="data.item._id">Delete this item
+
+    </button>
+
+
+
+  </div>
 
 
 </section>
