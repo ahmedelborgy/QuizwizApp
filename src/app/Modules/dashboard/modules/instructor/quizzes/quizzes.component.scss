@@ -1,0 +1,17 @@
+@import "../../../../../../assets/styles/layout";
+
+
+i {
+  font-size: 50px;
+  // font-weight: 500;
+}
+
+
+.quizIcon {
+  transition: all .4s;
+  &:hover {
+    background-color: #efefef;
+    scale: 1.07;
+    // border-radius: 28px;
+  }
+}

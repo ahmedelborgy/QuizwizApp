@@ -1,0 +1,47 @@
+<section class=" container p-5 py-4">
+  <div class="text-end mb-4">
+    <a class=" h4 border border-2 py-2 px-4 rounded rounded-5 ">
+      <i class="fa-solid fa-circle-plus"></i> Add Question
+    </a>
+  </div>
+  <div class=" border border-2 rounded rounded-3 py-4 px-3">
+    <div class=" d-flex justify-content-between">
+      <h2>Bank Of Questions</h2>
+      <div class=" d-flex justify-content-between gap-3">
+        <p>Category type</p>
+        <p>Difficulty</p>
+      </div>
+    </div>
+    <div>
+
+
+      <div class="table">
+        <div class="row header">
+          <th class="cell cell1 rounded rounded-0 rounded-start-3">
+            Question Title</th>
+          <th class="cell cell2">Question Desc</th>
+          <th class="cell cell3">Question difficulty level</th>
+          <th class="cell cell4">Category type</th>
+          <th class="cell cell5">status</th>
+          <th class="cell cell6 rounded rounded-3 rounded-start-0">Actions</th>
+        </div>
+        <ng-container *ngFor="let item of QuestionsTable">
+
+          <div class="row mt-2 border border-1">
+            <td class="cell cell1 border border-1">{{item.title}}</td>
+            <td class="cell cell2 border border-1">{{item.description}}</td>
+            <td class="cell cell3 border border-1">{{item.difficulty}}</td>
+            <td class="cell cell5 border border-1">{{item.options}}</td>
+            <td class="cell cell4 border border-1">{{item.status}}</td>
+            <td class="cell cell6 border border-1">
+
+            </td>
+          </div>
+        </ng-container>
+
+      </div>
+
+
+    </div>
+  </div>
+</section>

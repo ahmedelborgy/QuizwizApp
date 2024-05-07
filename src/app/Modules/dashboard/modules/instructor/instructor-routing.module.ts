@@ -8,7 +8,8 @@ const routes: Routes = [{
     { path: 'groups', loadChildren: () => import('./groups/groups.module').then(m => m.GroupsModule) },
     { path: 'quizzes', loadChildren: () => import('./quizzes/quizzes.module').then(m => m.QuizzesModule) },
     { path: 'results', loadChildren: () => import('./results/results.module').then(m => m.ResultsModule) },
-    { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule) }
+    { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule) },
+    { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) }
   ]
 },
 

@@ -1,0 +1,45 @@
+@import "../../../../../../assets/styles/layout";
+
+.table {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+}
+
+.header .cell {
+  margin-right: 2px;
+background-color: $mainColor_dark;
+color: #fff;
+}
+
+.cell {
+  // border: .01px solid rgb(101, 101, 101);
+  padding: 8px;
+
+  &.cell1 {
+    flex: 2;
+  }
+  &.cell2 {
+    flex: 1;
+  }
+  &.cell3 {
+    flex: 1.5;
+  }
+  &.cell4 {
+    flex: 1;
+  }
+  &.cell5 {
+    flex: 1;
+  }
+  &.cell6 {
+    flex: 1.5;
+  }
+}
+
+.header {
+  font-weight: 500;
+  // border-radius: 55px;
+}

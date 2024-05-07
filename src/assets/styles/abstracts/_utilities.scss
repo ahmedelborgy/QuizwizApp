@@ -28,3 +28,11 @@
 .bg-transparent {
   background-color: transparent !important;
 }
+
+.border_dark {
+   border:  $mainColor_dark solid 1px;
+}
+
+.border_2dark {
+   border:  $mainColor_dark solid 2px;
+}
