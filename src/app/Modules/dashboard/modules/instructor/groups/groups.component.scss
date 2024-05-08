@@ -4,41 +4,39 @@
 @import'./../../../../../../assets/styles/abstracts/_utilities';
 
 
-#groubs{
+#groubs {
 
-width: 95%;
-margin: auto;
+    width: 95%;
+    margin: auto;
 
 
 
-.navCaption{
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 30px;
-    width: 200px;
+    .navCaption {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+        width: 200px;
     }
 
-.groubList{
+    .groubList {
 
-    border:1px solid #00000033;
-    border-radius: 10px;
+        border: 1px solid #00000033;
+        border-radius: 10px;
 
 
-.cards{
-    border:1px solid #00000033;
-    border-radius: 10px;
-    padding: 2rem;
+        .cards {
+            border: 1px solid #00000033;
+            border-radius: 10px;
+            padding: 2rem;
+        }
+
+        h3 {
+            font-size: 16px;
+
+        }
+
+
+
+
+    }
+
 }
-
-h3{
- font-size: 16px;  
-
-}
-
-
-
-
-}
-
-}
-
-

@@ -1,1 +1,198 @@
-<p>students works!</p>
+<section id="groups" class="my-5 p-3">
+    <!-- <section class="heder w-100 ">
+
+        <div (click)="openDialogAddEdit('add')"
+            class="navCaption ms-auto  d-flex align-items-center justify-content-center  ">
+            <img src="../../../../../../assets/images/alert.png " class="d-inline-block mx-2" alt="">
+            <h6 class="m-2">Add Student</h6>
+        </div>
+    </section> -->
+
+
+    <section class="groubList container my-4  py-4  ">
+
+
+        <h3 *ngIf="allStudents.length!=0">Students list</h3>
+
+
+        <mat-tab-group animationDuration="2000ms"  (click)="clear()">
+            <mat-tab label="All Students">
+                <section>
+                    <ng-container *ngIf="allStudents.length!=0">
+
+                        <div class="row p-0 m-0">
+                            <section *ngFor="let item of allStudents" class="col-md-6 my-2 ">
+                                <div class="cards d-flex">
+
+                                    <div class="w-25">
+                                        <img src="../../../../../../assets/images/user img.svg" alt=""class="img-fluid w-100">
+                                    </div>
+                                    <div class="w-75 px-3 d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h5>{{item.first_name}} {{item.last_name}}</h5>
+                                            <h6>{{item.email}}</h6>
+                                            <h6>{{item.status}}</h6>
+                                            <!-- <h6>{{item.group.name}}</h6> -->
+                                        </div>
+                                        <div class="cardicon w-25  d-flex justify-content-end">
+                                            <img src="../../../../../../assets/images/Vector-1.svg" alt="" class="w-25">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </section>
+                        </div>
+
+
+                    </ng-container>
+
+
+                    <section *ngIf="allStudents.length==0" class="noData w-50  m-auto">
+                        <h2 class="text-center text-danger">No Data</h2>
+                        <img src="../../../../../../assets/images/noDataA.png" class="w-100" alt="noData">
+                    </section>
+
+                </section>
+
+            </mat-tab>
+            <mat-tab label="Students without group">
+                <section class="row p-0 m-0">
+                    <ng-container *ngIf="allStudentsWithoutGroups.length!=0">
+
+
+                        <section *ngFor="let item of allStudentsWithoutGroups" class="col-md-6 my-2 ">
+                            <div class="cards d-flex">
+
+                                <div class="w-25">
+                                    <img src="../../../../../../assets/images/user img.svg" alt=""
+                                        class="img-fluid w-100">
+                                </div>
+                                <div class="w-75 px-3 d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h5>{{item.first_name}} {{item.last_name}}</h5>
+                                        <h6>{{item.email}}</h6>
+                                        <h6>{{item.status}}</h6>
+                                    </div>
+                                    <div class="cardicon w-25  d-flex justify-content-end">
+                                        <img src="../../../../../../assets/images/Vector-1.svg" alt="" class="w-25">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </section>
+
+                    </ng-container>
+
+
+                    <section *ngIf="allStudentsWithoutGroups.length==0" class="noData w-50  m-auto">
+                        <h2 class="text-center text-danger">No Data</h2>
+                        <img src="../../../../../../assets/images/noDataA.png" class="w-100" alt="noData">
+                    </section>
+
+
+
+
+
+
+
+
+
+                </section>
+            </mat-tab>
+            <mat-tab label="Groups">
+                <section class="row p-0 m-0">
+                    <ng-container *ngIf="allGroups.length!=0 && !Group">
+
+
+                        <section *ngFor="let item of allGroups" class="col-md-6 my-2 ">
+                            <div class="cards px-3 d-flex justify-content-between align-items-center">
+
+                                <div class="cardCaption w-50 ">
+
+                                    <div
+                                        class="navCaption ms-auto  d-flex align-items-center justify-content-center m-4">
+                                        <h6 class="m-2" (click)="getGroupById(item._id)">{{item.name}}</h6>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="cardicon w-25  d-flex justify-content-end">
+                                    <img src="../../../../../../assets/images/Vector-1.svg" alt="">
+                                    <!-- <i class="fa-solid fa-pen-to-square fs-4 mx-1 text-mainColor_lightGreen"></i>
+                                    <i class="fa-solid fa-trash-arrow-up fs-4 mx-1 text-danger"></i> -->
+
+
+                                </div>
+
+
+
+
+                            </div>
+
+                        </section>
+
+                    </ng-container>
+
+                    <ng-container *ngIf="studentGroup.length!=0 && Group">
+
+                        <div class="row p-0 m-0">
+                            <section *ngFor="let item of studentGroup" class="col-md-6 my-2 ">
+                                <div class="cards d-flex">
+
+                                    <div class="w-25">
+                                        <img src="../../../../../../assets/images/user img.svg" alt=""class="img-fluid w-100">
+                                    </div>
+                                    <div class="w-75 px-3 d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <h5>{{item.first_name}} {{item.last_name}}</h5>
+                                            <h6>{{item.email}}</h6>
+                                            <!-- <h6>{{item.group.name}}</h6> -->
+                                        </div>
+                                        <div class="cardicon w-25  d-flex justify-content-end">
+                                            <img src="../../../../../../assets/images/Vector-1.svg" alt="" class="w-25">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </section>
+                        </div>
+
+
+                    </ng-container>
+
+                    <section *ngIf="allGroups.length==0" class="noData w-50  m-auto">
+                        <h2 class="text-center text-danger">No Data</h2>
+                        <img src="../../../../../../assets/images/noDataA.png" class="w-100" alt="noData">
+                    </section>
+
+
+
+
+
+
+
+
+
+                </section>
+            </mat-tab>
+        </mat-tab-group>
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+
+</section>

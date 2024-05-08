@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatTabsModule} from '@angular/material/tabs';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
 
@@ -32,6 +33,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
+    MatTabsModule,
     // HttpClientModule
   ],
   exports: [
@@ -48,7 +50,7 @@ import { ToastrModule } from 'ngx-toastr';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
-
+    MatTabsModule
   ],
 })
 export class SharedModule { }
