@@ -8,24 +8,24 @@ import { Observable } from 'rxjs';
 export class GroupService {
 
   constructor(
-    private htpp:HttpClient
+    private htpp: HttpClient
   ) { }
 
-  getResult(result:any){
+  getResult(result: any) {
 
   }
 
-getAllGroubs():Observable<any>{
+  getAllGroubs(): Observable<any> {
 
-return this.htpp.get(`group`);
+    return this.htpp.get(`group`);
 
 
-}
+  }
 
-addAllGroubs(data:any):Observable<any>{
-  return this.htpp.post(`group`,data);
+  addAllGroubs(data: any): Observable<any> {
+    return this.htpp.post(`group`, data);
 
-}
+  }
 
 deletGroup(id:any):Observable<any>{
   return this.htpp.delete(`group/${id}`);

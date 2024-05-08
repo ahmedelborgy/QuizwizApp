@@ -1,0 +1,53 @@
+// @import'./assets/styles/layout';
+// @import'./../../../../../../assets/styles/_layout';
+
+@import'./../../../../../../assets/styles/abstracts/_utilities';
+
+
+#groups {
+
+    width: 95%;
+    margin: auto;
+    
+
+
+    .navCaption {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 30px;
+        width: 200px;
+    }
+
+    .groubList {
+
+        border: 1px solid #00000033;
+        border-radius: 10px;
+
+
+        .cards {
+            border: 1px solid #00000033;
+            border-radius: 10px;
+            // padding: 1rem;
+        }
+
+        h3 {
+            font-size: 16px;
+
+        }
+
+
+        button{
+            border: 1px solid grey;
+            width: 10%;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+
+    }
+
+}
+
+
+.mat-mdc-tab-body-content {
+    height: 100%;
+    overflow: hidden !important;
+}

@@ -1,12 +1,28 @@
-
-
-<!-- ----------------------------------------------- -->
+<section id="addEdit">
 
 
 
+  <section class="header   d-flex justify-content-between px-3 align-items-center ">
+    <div class="w-50 ">
+      <h4>Set up a new Group</h4>
+      <p>{{data.action}}</p>
+    </div>
+
+    <div class="w-25  headIcone  d-flex justify-content-end ">
+
+
+      <i [mat-dialog-close]="data.animal" class="corect fa-solid fa-check fs-4 p-4"></i>
+      <i (click)="onNoClick()" class=" close fa-solid fa-xmark fs-4 p-4"></i>
+    </div>
+  </section>
+
+
+
+  <mat-dialog-content>
 
 
 <form id="addEdit" *ngIf="data.action=='add' || data.action =='edit'" [formGroup]="GroubForm">
+
 
 
   <section class="header   d-flex justify-content-between px-3 align-items-center ">
@@ -30,6 +46,7 @@
 
 
     <section class="form-item " >
+
       <div class="input-group mb-3 custom-input">
         <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
            rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
@@ -38,8 +55,10 @@
         </span>
         <div class="y-line my-auto"></div>
         <input type="text" class="form-control  rounded-end py-1 bg-transparent
+
             ps-3  border border-1" placeholder="Group Name :"
              formControlName="name">
+
       </div>
       <div *ngIf="GroubForm.get('name')?.errors && GroubForm.get('name')?.touched"
         class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
@@ -48,6 +67,7 @@
         <mat-error class="text-red p-0 block" *ngIf="GroubForm.get('name')?.getError('name')">name isn't
           Validator</mat-error>
       </div>
+
 
 
 <!-- ================================== -->
@@ -70,10 +90,15 @@
 </div>
  -->
 
+
 <!-- ================================== -->
 
 
+    </form>
 
+
+  </mat-dialog-content>
+  <mat-dialog-actions>
 
 
 <!-- ------------------------- -->
@@ -195,6 +220,7 @@ placeholder="Emails : "
 
 
   </div>
+
 
 
 </section>
