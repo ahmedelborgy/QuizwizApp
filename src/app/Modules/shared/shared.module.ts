@@ -54,7 +54,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
-    MatTabsModule
+    MatTabsModule,
 
     NgSelectModule
 
