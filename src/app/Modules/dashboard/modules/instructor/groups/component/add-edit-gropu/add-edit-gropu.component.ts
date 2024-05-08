@@ -21,10 +21,38 @@ export interface DialogData {
   styleUrls: ['./add-edit-gropu.component.scss'],
 })
 
+
 export class AddEditGropuComponent implements OnInit {
 
 
-  
+  selectedCar: number | undefined;
+
+  cars = [
+      { id: 1, name: 'Volvo' },
+      { id: 2, name: 'Saab' },
+      { id: 3, name: 'Opel' },
+      { id: 4, name: 'Audi' },
+  ];
+
+// 
+
+
+
+// 
+
+myControl = new FormControl('');
+options: string[] = ['One', 'Two', 'Three'];
+
+
+// 
+
+
+
+
+
+
+// 
+
 
 
 
@@ -36,7 +64,6 @@ export class AddEditGropuComponent implements OnInit {
   tableStudents: any;
 
   
-
   animal: string | any;
   action: string | any = 'add';
   emailsStudents: string[] = [];
@@ -46,10 +73,9 @@ export class AddEditGropuComponent implements OnInit {
     private helperServ: HelperService,
     private _Router: Router,
 
-
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
-
+    
   }
 
 
@@ -61,7 +87,6 @@ export class AddEditGropuComponent implements OnInit {
 
 
   ngOnInit(): void {
-
 console.log(this.data);
 
     this.allStudentsWithoutGroups();
@@ -80,19 +105,16 @@ console.log(this.data);
     this.dialogRef.close();
   }
 
-
   allStudentsWithoutGroups() {
     this.helperServ.getAllStudents().subscribe({
       next: (res) => {
         // console.log(res);
-
         this.tableStudents = res;
         for (const item of this.tableStudents) {
           this.emailsStudents.push(item.email);
         }
 
         console.log(this.emailsStudents);
-
       },
       error: (err) => {
         // console.log(err);
@@ -104,8 +126,10 @@ console.log(this.data);
 
   
 
- 
-
+  // GroubForm = new FormGroup({
+  //   name: new FormControl(null, [Validators.required]),
+  //   students: new FormControl(null, [Validators.required]),
+  // });
 
 
 
@@ -113,13 +137,6 @@ console.log(this.data);
 // ---------------------------------------
 
 
-
-
-    name: new FormControl(null,
-      [Validators.required]),
-    students: new FormControl(null,
-      [Validators.required]),
-  })
 
 
 
