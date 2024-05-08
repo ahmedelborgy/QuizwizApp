@@ -27,9 +27,15 @@ export class GroupService {
 
   }
 
+deletGroup(id:any):Observable<any>{
+  return this.htpp.delete(`group/${id}`);
 
+}
 
+editGroup(data:any,id:any):Observable<any>{
+  return this.htpp.put(`group/${id}`,data);
 
+}
 
 
 }
