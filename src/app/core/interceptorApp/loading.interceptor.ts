@@ -13,6 +13,10 @@ export class LoadingInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+    this.spinner.show();
+   
+    return next.handle(request).pipe(finalize( ()=>{
+      this.spinner.hide()
+    }));
   }
 }
