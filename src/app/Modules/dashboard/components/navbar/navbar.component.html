@@ -28,15 +28,15 @@
             </mat-icon>
           </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item>
+            <button mat-menu-item (click)="viewProfile()">
               <mat-icon>manage_accounts</mat-icon>
-              <span>Edite Profile</span>
+              <span>View Profile</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="ChangePassword()">
               <mat-icon>lock_open</mat-icon>
               <span>Change password</span>
             </button>
-            <button mat-menu-item (click)="logOut()">
+            <button mat-menu-item (click)="openDialog('1700ms', '500ms')">
               <mat-icon>logout</mat-icon>
               <span>logout</span>
             </button>
