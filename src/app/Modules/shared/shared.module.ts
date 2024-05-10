@@ -11,6 +11,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import {MatTabsModule} from '@angular/material/tabs';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
@@ -33,8 +34,16 @@ import { SliceStrPipe } from './pipes/slice-str.pipe';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
+
     NgSelectModule,
     
+
+
+    MatTabsModule,
+    // HttpClientModule
+
+ 
+
   ],
   exports: [
     CommonModule,
@@ -50,8 +59,11 @@ import { SliceStrPipe } from './pipes/slice-str.pipe';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
-    NgSelectModule,
-   
+
+    MatTabsModule,
+
+    NgSelectModule
+
 
   ],
   declarations: [
