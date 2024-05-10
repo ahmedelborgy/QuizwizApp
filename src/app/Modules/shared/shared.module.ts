@@ -15,7 +15,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
-import { SliceStrPipe } from './pipes/slice-str.pipe';
+// import { SliceStrPipe } from './pipes/slice-str.pipe';
 
 @NgModule({
 
@@ -67,7 +67,7 @@ import { SliceStrPipe } from './pipes/slice-str.pipe';
 
   ],
   declarations: [
-    SliceStrPipe
+    // SliceStrPipe
   ],
 })
 export class SharedModule { }
