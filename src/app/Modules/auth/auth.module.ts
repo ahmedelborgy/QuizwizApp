@@ -10,6 +10,8 @@ import { ResetPasswordComponent } from './components/reset-password/reset-passwo
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SharedModule } from '../shared/shared.module';
+import { LogoutComponent } from './components/logout/logout.component';
+import { EditProfileComponent } from '../dashboard/components/edit-profile/edit-profile.component';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import { SharedModule } from '../shared/shared.module';
     ForgotPasswordComponent,
     ResetPasswordComponent,
     ChangePasswordComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LogoutComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
