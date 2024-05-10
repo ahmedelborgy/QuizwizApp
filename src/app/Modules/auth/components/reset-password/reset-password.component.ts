@@ -37,13 +37,13 @@ export class ResetPasswordComponent {
         {
           next: (res) => {
             console.log(res)
-            this._Router.navigate(['/auth/changePassword']);
+            this._Router.navigate(['/auth/login']);
           }, error: (err) => {
             console.log(err)
-            this._ToastrService.error('Register error')
+            this._ToastrService.error('error')
 
           }, complete: () => {
-            this._ToastrService.success('Register Successfuly')
+            this._ToastrService.success('Successfuly')
           },
         }
       )

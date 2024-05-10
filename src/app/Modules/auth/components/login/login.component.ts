@@ -95,7 +95,6 @@ export class LoginComponent implements OnInit {
 
   forgetpass() {
     this._Router.navigate(['/auth/forgotPassword'])
-
   }
 
 }

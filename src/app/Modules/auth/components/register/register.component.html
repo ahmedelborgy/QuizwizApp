@@ -85,7 +85,7 @@
           </div>
 
           <div class="form-item w-100">
-            <label for="dropdown" class="text-white"> Select Your Role </label>
+            <label for="roles" class="text-white"> Select Your Role </label>
             <div class="input-group mb-3 custom-input">
               <span
                 class="input-group-text px-3 py-3 bg-transparent rounded rounded-start-3 rounded-end-0 border border-4 border-end-0"
@@ -93,12 +93,13 @@
                 <i class="fa-solid fa-users-viewfinder text-white"></i>
               </span>
               <div class="y-line my-auto"></div>
-              <select class="form-select rounded-end py-1 bg-mainColor_dark text-white pointer ps-3 border border-4"
+              <select name="roles" id="roles"
+                class="form-select rounded-end py-1 bg-mainColor_dark text-white pointer ps-3 border border-4"
                 formControlName="role">
-                <option selected> Student</option>
-                <option> Instructor</option>
+                <!-- <option disabled selected>Select Role</option> -->
+                <option selected class=" text-white">Student</option>
+                <option class=" text-white">Instructor</option>
               </select>
-              <!-- <i class="fa-solid fa-arrow-down text-white"></i> -->
             </div>
             <div *ngIf="RegisterForm.get('role')?.errors && RegisterForm.get('role')?.touched"
               class="text-red m-0 mx-auto p-0 text-start alert alert-danger p-2">
@@ -111,12 +112,6 @@
           <div class="form-item w-100">
             <label for="email" class="text-white">Your Password Address</label>
             <div class="input-group mb-3 custom-input">
-              <!-- <span class="input-group-text px-3 py-3 bg-transparent text-white" id="basic-addon1"><i
-                  class="fa-solid fa-key"></i></span>
-              <div class="y-line my-auto"></div>
-              <input type="password" class="form-control border border-4 rounded-end py-1 bg-transparent text-white"
-                placeholder=" Enter your password" aria-label="password" aria-describedby="basic-addon1"
-                formControlName="password"> -->
               <span
                 class="input-group-text px-3 py-3 bg-transparent text-white rounded rounded-start-3 rounded-end-0 border border-4 border-end-0"
                 id="basic-addon1"><i class="fa-solid fa-key"></i></span>
@@ -145,6 +140,9 @@
           <div class="col-md-12 d-flex justify-content-start align-items-center">
             <button [disabled]="!RegisterForm.valid" class="submit" type="submit">
               <span class="text me-1">Sign up</span><span><i class="fa-solid  fa-circle-check"></i></span>
+              <div class="bg-true">
+                <i class="fa-solid  fa-circle-check"></i>
+              </div>
             </button>
 
           </div>

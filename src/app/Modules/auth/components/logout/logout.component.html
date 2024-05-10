@@ -1,0 +1,12 @@
+<section class="text-center px-5 py-3">
+  <i class="exclamation fa-solid fa-circle-exclamation text-mainColor_lightGreen py-3"></i>
+  <h3 class="pb-2">Are you leaving?</h3>
+  <p class=" pb-4 text-muted">
+    Are you sure you want to logout? All your unsaved data will be lost
+  </p>
+  <div class="w-100 d-flex justify-content-around pb-4">
+    <button class="btn bg-light px-4 py-2" (click)="onNoClick()">Cancel</button>
+    <button class="btn bg-mainColor_lightGreen px-4 py-2" (click)="logOut()">Yes <i
+        class="fa-solid fa-arrow-right"></i></button>
+  </div>
+</section>
