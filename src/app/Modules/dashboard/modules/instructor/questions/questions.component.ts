@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HelperService } from 'src/app/core/helperServic/helper.service';
 import { Iquestions } from '../questions/interFac/iquestions';
+import { AddEditViewQuestionsComponent } from './components/add-edit-view-questions/add-edit-view-questions.component';
 
 @Component({
   selector: 'app-questions',
@@ -44,4 +45,51 @@ export class QuestionsComponent {
       })
       
       }
+
+
+
+
+
+      openDialogAddEdit(action:string,item:any): void {
+        const dialogRef = this.dialog.open(AddEditViewQuestionsComponent, {
+          width: '800px',
+          data: {action,item},
+    
+        });
+    
+      dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed',result);
+    
+      if(result !=undefined){
+     console.log(action);
+    if(action=='delet'){
+    
+    console.log(result);
+    // this.deletGroup(result);
+    }
+    
+    if(action=='add'){
+    
+      // console.log(result);
+      // this.addGroup(result);
+      }
+      if(action=='edit'){
+    console.log(item._id);
+    
+      console.log(result);
+      // this.editGroup(result,item._id);
+        
+        }
+    
+          }
+    
+          
+     
+    
+    
+        });
+      }
+    
+
+
 }

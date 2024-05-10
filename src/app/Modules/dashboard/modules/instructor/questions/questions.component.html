@@ -1,14 +1,17 @@
 <section id="groubs">
 
-    <section class="heder w-100  d-flex align-items-center py-3">
+    <section class="heder w-100  d-flex  align-items-center py-3">
 
-        <h4>Bank Of Questions</h4>
+     
 
-        <div class="titel ms-auto  d-flex align-items-center justify-content-center   ">
+        <div (click)="openDialogAddEdit('add','')" class="titel ms-auto  d-flex align-items-center justify-content-center   ">
             <img src="./assets/images/alert.png " class="d-inline-block mx-2" alt="">
-            <h6 class="m-2">Add Group</h6>
+            <h6 class="m-2">Add Question
+            </h6>
         </div>
     </section>
+
+
 
 
     <section class="groubList container my-4  py-4  px-4 ">
@@ -18,6 +21,106 @@
 
 
 
+            <section class="heder  w-100  d-flex align-items-center  mb-3">
+
+                <h4>Bank Of Questions</h4>
+        
+               
+<section class="container-fluid w-50  ms-auto py-2">
+    <div class="row justify-content-end align-items-center  flex-nowrap">
+    <!-- menu 1 difficulty -->
+    
+      <section class="col-md-4 mx-3">
+    
+    
+    
+    <div class="input-group mb-2 custom-input">
+      <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+         rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+         Difficulty :
+    
+      </span>
+      <div class="y-line my-auto"></div>
+     
+    
+      <select formControlName="difficulty" class="form-select form-select-sm" aria-label="Small select example">
+        <option selected>Open this select menu</option>
+        <option value="1">easy</option>
+        <option value="2">medium</option>
+        <option value="3">hard</option>
+      </select>
+    </div>
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+      </section>
+    
+    
+ 
+    
+    
+    
+    <!-- menu 3 type -->
+    
+    <section class="col-md-4">
+    
+    
+    
+      <div class="input-group mb-2 custom-input">
+        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+           rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+           type :
+      
+        </span>
+        <div class="y-line my-auto"></div>
+       
+      
+        <select formControlName="type" class="form-select form-select-sm" aria-label="Small select example">
+          <option selected>Open this select menu</option>
+          <option value="1">FE</option>
+          <option value="2">BE</option>
+          <option value="3">Do</option>
+        </select>
+    
+    
+    
+    
+    
+    
+      </div>
+      
+   
+    
+        </section>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+    </section>
+    
+    
+            </section>
+        
 
 
 
@@ -45,17 +148,17 @@
 
 
                     <tr class="" *ngFor="let item of tableData">
-                        <td>{{item.title}}</td>
+                        <td>{{item.title |strSlice}}</td>
                         <td>{{item.description}}</td>
                         <td>{{item.difficulty}}</td>
                         <td>{{item.type}}</td>
                         <td class=" ">
-                            <div class="w-75 m-auto">
+                            <div class="w-50 m-auto d-flex justify-content-between m-auto">
 
 
-                                <i class="fa-solid fa-pen-to-square fs-4 mx-1"></i>
-                                <i class="fa-solid fa-trash-arrow-up fs-4 mx-1 "></i>
-                                <i class="fa-regular fa-eye-slash fs-4 mx-1"></i>
+                                <i class="fa-solid fa-pen-to-square mx-1"></i>
+                                <i class="fa-solid fa-trash-arrow-up  mx-1 "></i>
+                                <i class="fa-regular fa-eye-slash  mx-1"></i>
                             </div>
 
                         </td>

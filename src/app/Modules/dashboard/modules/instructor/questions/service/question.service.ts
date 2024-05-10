@@ -20,8 +20,26 @@ return this.htpp.get(`question`);
 
 }
 
-addAllGroubs(data:any):Observable<any>{
-  return this.htpp.post(`group`,data);
+addQuestion(data:any):Observable<any>{
+  return this.htpp.post(`question`,data);
 
 }
+
+
+deletQuestion(id:any):Observable<any>{
+  return this.htpp.delete(`question/${id}`);
+
+}
+
+editQuestion(data:any,id:any):Observable<any>{
+  return this.htpp.put(`question/${id}`,data);
+
+}
+
+
+
+
+
+
+
 }
