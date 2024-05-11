@@ -21,6 +21,8 @@ return this.htpp.get(`question`);
 }
 
 addQuestion(data:any):Observable<any>{
+  console.log(data);
+  
   return this.htpp.post(`question`,data);
 
 }

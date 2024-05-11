@@ -4,7 +4,7 @@
     <section class="header   d-flex justify-content-between px-3 align-items-center ">
         <div class="w-50 ">
           <h4>Set up a new Group</h4>
-          <!-- <p>{{data.action}}</p> -->
+          <p>{{data.action}}</p>
         </div>
     
         <div class="w-25  headIcone  d-flex justify-content-end ">
@@ -24,7 +24,7 @@
 
 
 
-      <mat-dialog-content class="">
+      <mat-dialog-content class=""  >
 <!-- -----------titel -->
         <div class="input-group mb-2 custom-input">
           <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
@@ -267,9 +267,9 @@ ps-3  border border-1" placeholder="description:"
 
   <select formControlName="difficulty" class="form-select form-select-sm" aria-label="Small select example">
     <option selected>Open this select menu</option>
-    <option value="1">easy</option>
-    <option value="2">medium</option>
-    <option value="3">hard</option>
+    <option value="easy">easy</option>
+    <option value="medium">medium</option>
+    <option value="hard">hard</option>
   </select>
 </div>
 
@@ -310,9 +310,11 @@ class="text-red my-2 mx-auto p-0 text-start alert alert-danger
   
     <select formControlName="answer" class="form-select form-select-sm" aria-label="Small select example">
       <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+
     </select>
   </div>
 
@@ -337,7 +339,7 @@ class="text-red my-2 mx-auto p-0 text-start alert alert-danger
 
 <!-- menu 3 type -->
 
-<section class="col-md-4">
+<section class="col-md-4" >
 
 
 
@@ -350,11 +352,11 @@ class="text-red my-2 mx-auto p-0 text-start alert alert-danger
     <div class="y-line my-auto"></div>
    
   
-    <select formControlName="type" class="form-select form-select-sm" aria-label="Small select example">
+    <select  [disabled]="data.action=='edit'" formControlName="type" class="form-select form-select-sm" aria-label="Small select example">
       <option selected>Open this select menu</option>
-      <option value="1">FE</option>
-      <option value="2">BE</option>
-      <option value="3">Do</option>
+      <option value="FE">FE</option>
+      <option value="BE">BE</option>
+      <option value="Do">Do</option>
     </select>
 
 
