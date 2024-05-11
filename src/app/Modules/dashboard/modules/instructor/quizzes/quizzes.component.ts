@@ -1,52 +1,54 @@
 import { Component } from '@angular/core';
-import { QuestionService } from '../questions/service/question.service';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { HelperService } from 'src/app/core/helperServic/helper.service';
 import { Iquestions } from '../questions/interFac/iquestions';
-
+import { QuizzesService } from '../services/quizzes.service';
+import { AddEditQuizesComponent } from './components/add-edit-quizes/add-edit-quizes.component';
 @Component({
   selector: 'app-quizzes',
   templateUrl: './quizzes.component.html',
   styleUrls: ['./quizzes.component.scss']
 })
 export class QuizzesComponent {
-//   tableData:Iquestions[]=[];
-// is_Messg:string|any;
-//   constructor(private _questionServ:QuestionService,
-//     private _Router:Router,
-//     private _ToastrService:ToastrService,
-//     private helperServ:HelperService,
-//     public dialog: MatDialog
-  
-//   ){}
-//   ngOnInit(): void {
- 
-//     this.allQuestions();
-//   }
+  //   tableData:Iquestions[]=[];
+  // is_Messg:string|any;
 
-//   allQuestions(){
-//     console.log('mmmmmmm');
-    
-//     this._questionServ.getAllQuestion().subscribe({
-//       next:(res)=>{
-//         console.log(res);
-//         this.tableData=res
-//       },
-//       error:(err)=>{
-//         // console.log(err);
-        
-//       },
-//       complete:()=>{
-    
-//       }
-//     })
-    
-//     }
-    
+  quizes: any;
 
 
+  constructor(private _QuizzesService: QuizzesService,
+    private _Router: Router,
+    private _ToastrService: ToastrService,
+    private helperServ: HelperService,
+    public dialog: MatDialog
 
+  ) { }
+
+  ngOnInit(): void {
+    this.getIncommingQuiz()
+  }
+
+  getIncommingQuiz() {
+    this._QuizzesService.incommingQuiz().subscribe({
+      next: (res) => {
+        console.log(res)
+        this.quizes = res;
+      },
+    })
+  }
+
+  openAddEditQuizes(){
+    const dialogRef = this.dialog.open(AddEditQuizesComponent, {
+      // data:item
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result)
+      
+    });
+  }
 
 }
