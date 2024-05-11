@@ -59,7 +59,11 @@ export class LoginComponent implements OnInit {
           this.profile = res.data.profile;
           localStorage.setItem('token', res.data.accessToken);
           localStorage.setItem('name', `${this.profile.first_name} ${this.profile.last_name}`);
+          localStorage.setItem('first_name', this.profile.first_name);
+          localStorage.setItem('last_name', this.profile.last_name);
           localStorage.setItem('email', this.profile.email);
+          localStorage.setItem('status', this.profile.status);
+          // localStorage.getItem('status')
           localStorage.setItem('group', this.profile.group);
 
           this.is_Massage = res.message;
@@ -69,7 +73,7 @@ export class LoginComponent implements OnInit {
         },
         error: (err) => {
           console.log(err);
-          this._ToastrService.error(`Register error : ${this.is_Massage}`);
+          this._ToastrService.error(err.message);
         },
         complete: () => {
           console.log('login completed');

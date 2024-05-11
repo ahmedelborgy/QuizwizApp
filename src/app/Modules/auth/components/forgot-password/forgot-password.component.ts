@@ -63,6 +63,10 @@ export class ForgotPasswordComponent {
     this._Router.navigate(['/auth/login'])
   }
 
+  resetPass() {
+    this._Router.navigate(['/auth/resetPassword'])
+  }
+
 
 
 }
