@@ -16,9 +16,7 @@
 
     <section class="groubList container my-4  py-4  px-4 ">
 
-        <section id="main-table bg-warning  " class="">
-
-
+        <section *ngIf="tableData.length>0" id="main-table  " class="">
 
 
             <section class="heder  w-100  d-flex align-items-center  mb-3">
@@ -123,14 +121,6 @@
         
 
 
-
-
-
-
-
-
-
-
             <table class=" w-100">
 
 
@@ -156,9 +146,9 @@
                             <div class="w-50 m-auto d-flex justify-content-between m-auto">
 
 
-                                <i class="fa-solid fa-pen-to-square mx-1"></i>
-                                <i class="fa-solid fa-trash-arrow-up  mx-1 "></i>
-                                <i class="fa-regular fa-eye-slash  mx-1"></i>
+                                <i (click)="openDialogAddEdit('edit',item)" class="fa-solid fa-pen-to-square mx-1"></i>
+                                <i  (click)="openDialogAddEdit('delet',item)" class="fa-solid fa-trash-arrow-up  mx-1 "></i>
+                                <i  (click)="openDialogAddEdit('view',item)" class="fa-regular fa-eye-slash  mx-1"></i>
                             </div>
 
                         </td>
@@ -183,6 +173,51 @@
 
 
         </section>
+
+
+<!--  -->
+
+
+
+
+<section *ngIf="tableData.length==0" class="noData w-50  m-auto">
+  <h2 class="text-center text-danger">No Data</h2>
+ <img src="./assets/images/noDataA.png" class="w-100" alt="noData" 
+ >
+   </section>
+
+
+
+
+
+
+
+
+
+
+
+<!--  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     </section>
 

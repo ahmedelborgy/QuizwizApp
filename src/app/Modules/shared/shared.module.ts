@@ -14,9 +14,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatTabsModule} from '@angular/material/tabs';
 import { NgSelectModule } from '@ng-select/ng-select';
 
-import {Component} from '@angular/core';
+
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
+
+import { NgxSpinnerModule } from "ngx-spinner";
+
+
 
 @NgModule({
 
@@ -41,8 +45,17 @@ import {MatNativeDateModule} from '@angular/material/core';
 
 
     MatTabsModule,
+
     MatDatepickerModule,
     MatNativeDateModule
+
+    // HttpClientModule
+
+
+
+    NgxSpinnerModule
+
+
 
   ],
   exports: [
@@ -63,8 +76,12 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatTabsModule,
 
     NgSelectModule,
+
     MatDatepickerModule,
     MatNativeDateModule
+
+    NgxSpinnerModule
+
 
 
   ],

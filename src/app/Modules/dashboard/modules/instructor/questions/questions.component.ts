@@ -28,11 +28,11 @@ export class QuestionsComponent {
     }
   
     allQuestions(){
-      console.log('mmmmmmm');
+      // console.log('mmmmmmm');
       
       this._questionServ.getAllQuestion().subscribe({
         next:(res)=>{
-          console.log(res);
+          // console.log(res);
           this.tableData=res
         },
         error:(err)=>{
@@ -64,20 +64,20 @@ export class QuestionsComponent {
      console.log(action);
     if(action=='delet'){
     
-    console.log(result);
-    // this.deletGroup(result);
+    // console.log(result);
+    this.deletQuestions(result);
     }
     
     if(action=='add'){
     
       // console.log(result);
-      // this.addGroup(result);
+      this.addQuestion(result);
       }
       if(action=='edit'){
-    console.log(item._id);
+    // console.log(item._id);
     
-      console.log(result);
-      // this.editGroup(result,item._id);
+      // console.log(result.answer );
+      this.editQuestions(result.answer,item._id);
         
         }
     
@@ -89,6 +89,103 @@ export class QuestionsComponent {
     
         });
       }
+
+
+
+      
+  addQuestion(groups:any){
+
+
+    this._questionServ.addQuestion(groups).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.is_Messg=res.message;
+      },
+      error: (err) => {
+        console.log(err);
+        this._ToastrService.error(` add error : ${this.is_Messg}`);
+
+      },
+      complete:()=>{
+        // console.log('add complet');
+    this._ToastrService.success(`add succes: ,${this.is_Messg}`)
+
+        this.allQuestions();
+
+      }
+    });
+
+
+
+  }
+
+
+
+  editQuestions(groups:any,id:any){
+
+    this._questionServ.editQuestion(groups,id).subscribe({
+      next: (res) => {
+        // console.log(res);
+        this.is_Messg=res.message;
+      },
+      error: (err) => {
+        // console.log(err);
+        this._ToastrService.error(` edit error : ${this.is_Messg}`);
+
+      },
+      complete:()=>{
+        // console.log('add complet');
+    this._ToastrService.success(`edit succes: ,${this.is_Messg}`)
+
+     this.allQuestions();
+      }
+    });
+
+
+
+  }
+
+
+  
+ deletQuestions(id:number){
+
+    this._questionServ.deletQuestion(id).subscribe({
+      next:(res)=>{
+        this.is_Messg=res.message;
+        // console.log(res);
+        
+      },
+      error:(err)=>{
+        // console.log(err);
+        this._ToastrService.error(`delet error: ,${this.is_Messg}`)
+
+      },
+      complete:()=>{
+        // console.log('---delet comp---');
+        this.allQuestions();
+        this._ToastrService.success(`delet succes: ,${this.is_Messg}`)
+
+      }
+
+
+
+
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
     
 
 
