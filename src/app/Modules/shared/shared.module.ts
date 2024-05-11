@@ -15,6 +15,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { SliceStrPipe } from './pipes/slice-str.pipe';
 
 @NgModule({
 
@@ -34,10 +35,14 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatSelectModule,
     DragDropModule,
 
+    NgSelectModule,
+    
+
+
     MatTabsModule,
     // HttpClientModule
 
-    NgSelectModule
+ 
 
   ],
   exports: [
@@ -54,10 +59,15 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
+
     MatTabsModule,
 
     NgSelectModule
 
+
+  ],
+  declarations: [
+    SliceStrPipe
   ],
 })
 export class SharedModule { }
