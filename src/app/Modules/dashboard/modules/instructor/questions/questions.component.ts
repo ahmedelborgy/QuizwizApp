@@ -137,8 +137,7 @@ console.log('mmmmmmmmmmmmmmmmmmm');
         // console.log('add complet');
     this._ToastrService.success(`edit succes: ,${this.is_Messg}`)
 
-        this.allGropus();
-
+this.allQuestions();
       }
     });
 
