@@ -1,0 +1,464 @@
+
+
+<ng-container *ngIf="data.action !='delet'" >
+
+<form  id="addEdit" [formGroup]="QuestionForm" >
+
+
+    <section class="header   d-flex justify-content-between px-3 align-items-center ">
+        <div class="w-50 ">
+          <h4>Set up a new Question</h4>
+          <p>{{data.action}}</p>
+        </div>
+    
+        <div class="w-25  headIcone  d-flex justify-content-end ">
+    
+          <i [mat-dialog-close]="QuestionForm.value"
+           class="corect fa-solid fa-check fs-4 p-4">
+          </i>
+          <i (click)="onNoClick()" class=" close fa-solid fa-xmark fs-4 p-4">
+        </i>
+        </div>
+
+      
+
+
+      </section>
+
+
+
+
+      <mat-dialog-content class=""  >
+<!-- -----------titel -->
+        <div class="input-group mb-2 custom-input">
+          <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+             rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+           Titel :
+  
+          </span>
+          <!-- <div class="y-line my-auto"></div> -->
+          <input type="text" class="form-control  rounded-end py-1 bg-transparent
+              ps-3  border border-1"
+              placeholder="titel :"
+              formControlName="title">
+        </div>
+
+        <div *ngIf="QuestionForm.get('title')?.errors && QuestionForm.get('title')?.touched"
+        class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+         p-2">
+        <mat-error class="text-red" *ngIf="QuestionForm.get('title')?.getError('required')">name is
+          required</mat-error>
+        <mat-error class="text-red p-0 block" 
+        *ngIf="QuestionForm.get('title')?.getError('title')">name isn't
+          Validator</mat-error>
+      </div>
+<!-- -------------------dec -->
+
+<div class="input-group mb-2 custom-input">
+  <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+     rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+     description :
+
+  </span>
+  <div class="y-line my-auto"></div>
+ 
+
+<textarea name="" id=""  class="form-control  rounded-end py-1 bg-transparent
+ps-3  border border-1" placeholder="description:"
+ formControlName="description"></textarea>
+
+</div>
+
+<div *ngIf="QuestionForm.get('description')?.errors && QuestionForm.get('description')?.touched"
+        class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+         p-2">
+        <mat-error class="text-red" *ngIf="QuestionForm.get('description')?.getError('required')">description is
+          required</mat-error>
+        <mat-error class="text-red p-0 block" *ngIf="QuestionForm.get('description')?.getError('description')">description isn't
+          Validator</mat-error>
+      </div>
+
+
+
+<!-- options -->
+<section class=" container-fluid">
+
+
+<section class="row " formGroupName="options">
+
+
+  <!-- A -->
+  <section class="col-md-6 pe-2" >
+    <div class="input-group mb-2 custom-input ">
+      <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+         rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+         A :
+    
+      </span>
+      <div class="y-line my-auto"></div>
+     
+    
+      <input type="text" class="form-control  rounded-end py-1 bg-transparent
+      ps-3  border border-1"
+      placeholder="A :"
+      formControlName="A">
+
+    
+    </div>
+
+    <div *ngIf="QuestionForm.get('options.A')?.errors && QuestionForm.get('options.A')?.touched"
+    class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+     p-2">
+    <mat-error class="text-red" *ngIf="QuestionForm.get('options.A')?.getError('required')">name is
+      required</mat-error>
+    <mat-error class="text-red p-0 block" 
+    *ngIf="QuestionForm.get('options.A')?.getError('options.A')">A isn't
+      Validator</mat-error>
+  </div>
+
+  </section>
+
+
+
+<!-- B -->
+
+<section class="col-md-6 ps-2 " >
+  <div class="input-group mb-2 custom-input">
+    <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       B:
+  
+    </span>
+    <div class="y-line my-auto"></div>
+   
+  
+    <input type="text" class="form-control  rounded-end py-1 bg-transparent
+    ps-3  border border-1"
+    placeholder="B:"
+    formControlName="B">
+
+  
+  </div>
+  <div *ngIf="QuestionForm.get('options.B')?.errors && QuestionForm.get('options.B')?.touched"
+    class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+     p-2">
+    <mat-error class="text-red" *ngIf="QuestionForm.get('options.B')?.getError('required')">name is
+      required</mat-error>
+    <mat-error class="text-red p-0 block" 
+    *ngIf="QuestionForm.get('options.B')?.getError('options.B')">B isn't
+      Validator</mat-error>
+  </div>
+
+
+</section>
+
+
+
+
+<!-- -----C -->
+
+
+<section class="col-md-6 pe-2" >
+  <div class="input-group mb-2 custom-input ">
+    <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       C :
+  
+    </span>
+    <div class="y-line my-auto"></div>
+   
+  
+    <input type="text" class="form-control  rounded-end py-1 bg-transparent
+    ps-3  border border-1"
+    placeholder="C:"
+    formControlName="C">
+
+  
+  </div>
+
+  <div *ngIf="QuestionForm.get('options.C')?.errors && QuestionForm.get('options.C')?.touched"
+  class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+  <mat-error class="text-red" *ngIf="QuestionForm.get('options.C')?.getError('required')">C is
+    required</mat-error>
+  <mat-error class="text-red p-0 block" 
+  *ngIf="QuestionForm.get('options.C')?.getError('options.C')">C isn't
+    Validator</mat-error>
+</div>
+
+</section>
+
+
+
+<!-- D -->
+
+<section class="col-md-6 ps-2 " >
+  <div class="input-group mb-2 custom-input">
+    <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       D :
+  
+    </span>
+    <div class="y-line my-auto"></div>
+   
+  
+    <input type="text" class="form-control  rounded-end py-1 bg-transparent
+    ps-3  border border-1"
+    placeholder="D:"
+    formControlName="D">
+
+  
+  </div>
+  <div *ngIf="QuestionForm.get('options.D')?.errors && QuestionForm.get('options.D')?.touched"
+    class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+     p-2">
+    <mat-error class="text-red" *ngIf="QuestionForm.get('options.D')?.getError('required')">name is
+      required</mat-error>
+    <mat-error class="text-red p-0 block" 
+    *ngIf="QuestionForm.get('options.D')?.getError('options.D')"><Dl></Dl> isn't
+      Validator</mat-error>
+  </div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+  
+
+
+
+
+</section>
+
+
+
+<!-- ---------------select Menue -->
+
+
+
+<section class="container-fluid">
+<div class="row justify-content-between flex-nowrap">
+<!-- menu 1 difficulty -->
+
+  <section class="col-md-4 pe-2">
+
+
+
+<div class="input-group mb-2 custom-input">
+  <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+     rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+     Difficulty :
+
+  </span>
+  <div class="y-line my-auto"></div>
+ 
+
+  <select formControlName="difficulty" class="form-select form-select-sm" aria-label="Small select example">
+    <option selected>Open this select menu</option>
+    <option value="easy">easy</option>
+    <option value="medium">medium</option>
+    <option value="hard">hard</option>
+  </select>
+</div>
+
+
+
+
+<div *ngIf="QuestionForm.get('difficulty')?.errors && QuestionForm.get('difficulty')?.touched"
+class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+ p-2">
+<mat-error class="text-red" *ngIf="QuestionForm.get('difficulty')?.getError('required')">difficulty is
+  required</mat-error>
+<mat-error class="text-red p-0 block" *ngIf="QuestionForm.get('difficulty')?.getError('type')">difficulty isn't
+  Validator</mat-error>
+</div>
+
+
+
+
+
+
+  </section>
+
+
+<!-- menu 2 answer -->
+
+<section class="col-md-4 pe-2 ">
+
+
+
+  <div class="input-group mb-2 custom-input">
+    <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       Right Answer :
+  
+    </span>
+    <div class="y-line my-auto"></div>
+   
+  
+    <select formControlName="answer" class="form-select form-select-sm" aria-label="Small select example">
+      <option selected>Open this select menu</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+
+    </select>
+  </div>
+
+
+
+  <div *ngIf="QuestionForm.get('answer')?.errors && QuestionForm.get('answer')?.touched"
+  class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+  <mat-error class="text-red" *ngIf="QuestionForm.get('answer')?.getError('required')">answer is
+    required</mat-error>
+  <mat-error class="text-red p-0 block" *ngIf="QuestionForm.get('answer')?.getError('type')">answer isn't
+    Validator</mat-error>
+</div>
+
+
+
+  
+    </section>
+
+
+
+
+<!-- menu 3 type -->
+
+<section class="col-md-4" >
+
+
+
+  <div class="input-group mb-2 custom-input">
+    <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       type :
+  
+    </span>
+    <div class="y-line my-auto"></div>
+   
+  
+    <select  [disabled]="data.action=='edit'" formControlName="type" class="form-select form-select-sm" aria-label="Small select example">
+      <option selected>Open this select menu</option>
+      <option value="FE">FE</option>
+      <option value="BE">BE</option>
+      <option value="Do">Do</option>
+    </select>
+
+
+
+
+
+
+  </div>
+  
+  <div *ngIf="QuestionForm.get('type')?.errors && QuestionForm.get('type')?.touched"
+  class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+  <mat-error class="text-red" *ngIf="QuestionForm.get('type')?.getError('required')">type is
+    required</mat-error>
+  <mat-error class="text-red p-0 block" *ngIf="QuestionForm.get('type')?.getError('type')">type isn't
+    Validator</mat-error>
+</div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </mat-dialog-content>
+
+
+
+
+
+
+
+
+</form>
+
+</ng-container>
+
+
+
+
+<!-- --------------------------- delet-------------- -->
+
+
+<mat-dialog-content *ngIf="data.action =='delet'" >
+  <section class="container ">
+    <a (click)="onNoClick()" class="d-block text-end my-pointer">
+        <i class="fa-regular fa-circle-xmark text-danger fa-2x"></i>
+    </a>
+  
+  <div class=" text-center">
+    <img src="./assets/images/no-data.png" class="w-25" alt="">
+    <h3>Delete This  Question ?
+          (<span class="fw-bold">{{data.item.title}}</span>)
+    </h3>
+    <p>are you sure you want to delete this item ? if you are sure just click on delete it</p>
+  </div>
+  <hr>
+  <div class="text-end mt-3 ">
+    <button class="btn btn-outline-danger p-3 "
+     [mat-dialog-close]="data.item._id">Delete this item
+
+    </button>
+  
+
+
+  </div>
+
+
+</section>
+
+
+
+</mat-dialog-content>

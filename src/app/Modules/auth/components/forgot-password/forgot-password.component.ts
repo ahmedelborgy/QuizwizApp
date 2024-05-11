@@ -40,10 +40,10 @@ export class ForgotPasswordComponent {
             this._Router.navigate(['/auth/resetPassword']);
           }, error: (err) => {
             console.log(err)
-            this._ToastrService.error('Register error')
+            this._ToastrService.error(' error')
 
           }, complete: () => {
-            this._ToastrService.success('Register Successfuly')
+            this._ToastrService.success(' Successfuly')
           },
         }
       )
@@ -57,6 +57,12 @@ export class ForgotPasswordComponent {
     this.see = !this.see;
     this.password_type = this.see ? 'text' : 'password';
   }
+
+
+  login() {
+    this._Router.navigate(['/auth/login'])
+  }
+
 
 
 }

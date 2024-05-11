@@ -33,12 +33,20 @@ export class SidebarComponent {
       isActive: this.isInstructor(),
     },
 
-    // {
-    //   text: 'Students',
-    //   link: '/dashboard/instructor/students',
-    //   icon: 'fa-solid fa-users',
-    //   isActive: this.isInstructor(),
-    // },
+
+    {
+      text: 'Students',
+      link: '/dashboard/instructor/students',
+      icon: 'fa-solid fa-users',
+      isActive: this.isInstructor(),
+    },
+
+    {
+      text: 'Groups',
+      link: '/dashboard/instructor/groups',
+      icon: 'fa-solid fa-users',
+      isActive: this.isInstructor(),
+    },
 
     {
       text: 'Quizes',
@@ -68,18 +76,6 @@ export class SidebarComponent {
       isActive: this.isStudent(),
     },
 
-    {
-      text: 'Groups',
-      link: '/dashboard/instructor/groups',
-      icon: 'fa-solid fa-users',
-      isActive: this.isInstructor(),
-    },
-    {
-      text: 'Students',
-      link: '/dashboard/instructor/students',
-      icon: 'fa-solid fa-users',
-      isActive: this.isInstructor(),
-    },
 
   ]
 }

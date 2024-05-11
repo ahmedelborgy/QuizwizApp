@@ -15,7 +15,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
+
 import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
 
@@ -35,11 +37,17 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatSelectModule,
     DragDropModule,
 
+    NgSelectModule,
+    
+
+
     MatTabsModule,
     // HttpClientModule
 
-    NgSelectModule,
+
+
     NgxSpinnerModule
+
 
   ],
   exports: [
@@ -56,11 +64,16 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatAutocompleteModule,
     MatSelectModule,
     DragDropModule,
+
     MatTabsModule,
 
     NgSelectModule,
     NgxSpinnerModule
 
+
+  ],
+  declarations: [
+    // SliceStrPipe
   ],
 })
 export class SharedModule { }
