@@ -15,7 +15,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ToastrModule } from 'ngx-toastr';
 // import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
-// import { SliceStrPipe } from './pipes/slice-str.pipe';
+
+import { NgxSpinnerModule } from "ngx-spinner";
+
 
 @NgModule({
 
@@ -42,7 +44,10 @@ import { NgSelectModule } from '@ng-select/ng-select';
     MatTabsModule,
     // HttpClientModule
 
- 
+
+
+    NgxSpinnerModule
+
 
   ],
   exports: [
@@ -62,7 +67,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
     MatTabsModule,
 
-    NgSelectModule
+    NgSelectModule,
+    NgxSpinnerModule
 
 
   ],
