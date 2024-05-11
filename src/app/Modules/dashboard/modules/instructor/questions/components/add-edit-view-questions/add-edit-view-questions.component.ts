@@ -1,3 +1,4 @@
+import { Options } from './../../interFac/iquestions';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -73,7 +74,56 @@ QuestionForm = new FormGroup({
 
 
 ngOnInit(): void {
+
+  console.log(this.data);
+ if(this.data.action=='view'){
+  this.QuestionForm.disable();
+  }else{
+    this.QuestionForm.enable();
+  }
   
+  if(this.data.action=='edit'||this.data.action=='view'){
+
+  
+    console.log(this.data.action);
+    this.QuestionForm.patchValue({
+      title:this.data.item.title
+      ,
+      description:this.data.item.description,
+      answer:this.data.item.answer,
+      difficulty:this.data.item.difficulty,
+      type:this.data.item.type,
+      options: {
+            A: this.data.item.options.A,
+            B: this.data.item.options.B,
+            C: this.data.item.options.C,
+
+            D: this.data.item.options.D,
+
+
+          },
+
+    
+
+    })
+
+    
+
+
+
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  }
 }
 
 onNoClick(): void {
