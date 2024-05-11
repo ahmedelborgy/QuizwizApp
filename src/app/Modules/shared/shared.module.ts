@@ -47,7 +47,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatTabsModule,
 
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
 
     // HttpClientModule
 
@@ -78,7 +78,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     NgSelectModule,
 
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
 
     NgxSpinnerModule
 
