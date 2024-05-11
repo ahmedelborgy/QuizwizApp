@@ -94,7 +94,7 @@ export class QuestionsComponent {
 
       
   addQuestion(groups:any){
-console.log('mmmmmmmmmmmmmmmmmmm');
+
 
     this._questionServ.addQuestion(groups).subscribe({
       next: (res) => {
@@ -123,7 +123,7 @@ console.log('mmmmmmmmmmmmmmmmmmm');
 
   editQuestions(groups:any,id:any){
 
-    this_questionServ.editQu(groups,id).subscribe({
+    this._questionServ.editQuestion(groups,id).subscribe({
       next: (res) => {
         // console.log(res);
         this.is_Messg=res.message;
