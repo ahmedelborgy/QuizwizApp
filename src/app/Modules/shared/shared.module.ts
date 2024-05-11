@@ -12,10 +12,11 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import {MatTabsModule} from '@angular/material/tabs';
-import { ToastrModule } from 'ngx-toastr';
-// import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
-// import { SliceStrPipe } from './pipes/slice-str.pipe';
+
+import {Component} from '@angular/core';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
 
@@ -40,9 +41,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
 
     MatTabsModule,
-    // HttpClientModule
-
- 
+    MatDatepickerModule,
+    MatNativeDateModule
 
   ],
   exports: [
@@ -62,7 +62,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
 
     MatTabsModule,
 
-    NgSelectModule
+    NgSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
 
 
   ],

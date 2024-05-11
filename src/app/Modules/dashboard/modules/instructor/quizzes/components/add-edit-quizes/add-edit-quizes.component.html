@@ -1,0 +1,429 @@
+<form id="addEdit" [formGroup]="quizesForm">
+
+
+    <section class="header   d-flex justify-content-between px-3 align-items-center ">
+        <div class="w-50 ">
+            <h4>Set up a new Quize</h4>
+            <!-- <p>{{data.action}}</p> -->
+        </div>
+
+        <div class="w-25  headIcone  d-flex justify-content-end ">
+
+            <i [mat-dialog-close]="quizesForm.value" class="corect fa-solid fa-check fs-4 p-4">
+            </i>
+            <i (click)="onNoClick()" class=" close fa-solid fa-xmark fs-4 p-4">
+            </i>
+        </div>
+
+
+
+
+    </section>
+
+
+
+
+    <mat-dialog-content class="">
+        <!-- -----------titel -->
+        <div class="input-group mb-2 custom-input">
+            <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+             rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+                Titel :
+
+            </span>
+            <!-- <div class="y-line my-auto"></div> -->
+            <input type="text" class="form-control  rounded-end py-1 bg-transparent
+              ps-3  border border-1" placeholder="titel :" formControlName="title">
+        </div>
+
+        <div *ngIf="quizesForm.get('title')?.errors && quizesForm.get('title')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+         p-2">
+            <mat-error class="text-red" *ngIf="quizesForm.get('title')?.getError('required')">Title is
+                required</mat-error>
+            <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('title')?.getError('title')">Title isn't
+                Validator</mat-error>
+        </div>
+
+
+        
+        <section class="container-fluid">
+            <div class="row justify-content-between flex-nowrap">
+                <!-- menu 1 duration -->
+
+                <section class="col-md-4 pe-2">
+
+
+
+                    <div class="input-group mb-2 custom-input">
+                        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+     rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+     Duration:
+
+                        </span>
+                        <div class="y-line my-auto"></div>
+
+
+                        <select formControlName="duration" class="form-select form-select-sm"
+                            aria-label="Small select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">10</option>
+                            <option value="2">20</option>
+                            <option value="3">30</option>
+                        </select>
+                    </div>
+
+
+
+
+                    <div *ngIf="quizesForm.get('duration')?.errors && quizesForm.get('duration')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+ p-2">
+                        <mat-error class="text-red"
+                            *ngIf="quizesForm.get('duration')?.getError('required')">duration is
+                            required</mat-error>
+                        <mat-error class="text-red p-0 block"
+                            *ngIf="quizesForm.get('duration')?.getError('type')">duration isn't
+                            Validator</mat-error>
+                    </div>
+
+
+
+
+
+
+                </section>
+
+
+                <!-- menu 2 answer -->
+
+                <section class="col-md-4 pe-2 ">
+
+
+
+                    <div class="input-group mb-2 custom-input">
+                        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       No Of Questions:
+
+                        </span>
+                        <div class="y-line my-auto"></div>
+
+
+                        <select formControlName="noOfQuestions" class="form-select form-select-sm"
+                            aria-label="Small select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="3">4</option>
+                            <option value="3">5</option>
+                            <option value="3">6</option>
+                            <option value="3">7</option>
+                            <option value="3">8</option>
+                            <option value="3">9</option>
+                        </select>
+                    </div>
+
+
+
+                    <div *ngIf="quizesForm.get('noOfQuestions')?.errors && quizesForm.get('noOfQuestions')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+                        <mat-error class="text-red" *ngIf="quizesForm.get('noOfQuestions')?.getError('required')">noOfQuestions is
+                            required</mat-error>
+                        <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('noOfQuestions')?.getError('type')">noOfQuestions
+                            isn't
+                            Validator</mat-error>
+                    </div>
+
+
+
+
+                </section>
+
+
+
+
+                <!-- menu 3 type -->
+
+                <section class="col-md-4">
+
+
+
+                    <div class="input-group mb-2 custom-input">
+                        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+       Score Per Question :
+
+                        </span>
+                        <div class="y-line my-auto"></div>
+
+
+                        <select formControlName="scorePerQuestion" class="form-select form-select-sm"
+                            aria-label="Small select example">
+                            <option value="1">5</option>
+                            <option value="2">10</option>
+                            <option value="3">15</option>
+
+                        </select>
+
+
+
+
+
+
+                    </div>
+
+                    <div *ngIf="quizesForm.get('scorePerQuestion')?.errors && quizesForm.get('scorePerQuestion')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+                        <mat-error class="text-red" *ngIf="quizesForm.get('scorePerQuestion')?.getError('required')">scorePerQuestion is
+                            required</mat-error>
+                        <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('scorePerQuestion')?.getError('scorePerQuestion')">scorePerQuestion
+                            isn't
+                            Validator</mat-error>
+                    </div>
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+        <!-- -------------------dec -->
+
+        <div class="input-group mb-2 custom-input">
+            <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+     rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+                description :
+
+            </span>
+            <div class="y-line my-auto"></div>
+
+
+            <textarea name="" id="" class="form-control  rounded-end py-1 bg-transparent
+ps-3  border border-1" placeholder="description:" formControlName="description"></textarea>
+
+        </div>
+
+        <div *ngIf="quizesForm.get('description')?.errors && quizesForm.get('description')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+         p-2">
+            <mat-error class="text-red" *ngIf="quizesForm.get('description')?.getError('required')">description is
+                required</mat-error>
+            <mat-error class="text-red p-0 block"
+                *ngIf="quizesForm.get('description')?.getError('description')">description isn't
+                Validator</mat-error>
+        </div>
+
+
+        <div class="input-group mb-2 custom-input">
+            <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+             rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+                Schedule :
+
+            </span>
+            <!-- <div class="y-line my-auto"></div> -->
+            <mat-form-field class="w-75">
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matIconSuffix [for]="picker">
+                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                </mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+        </div>
+
+        <div *ngIf="quizesForm.get('schedule')?.errors && quizesForm.get('schedule')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+         p-2">
+            <mat-error class="text-red" *ngIf="quizesForm.get('schedule')?.getError('required')">schedule is
+                required</mat-error>
+            <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('schedule')?.getError('schedule')">schedule isn't
+                Validator</mat-error>
+        </div>
+
+        <!-- ---------------select Menue -->
+
+
+
+        <section class="container-fluid">
+            <div class="row justify-content-between flex-nowrap">
+                <!-- menu 1 difficulty -->
+
+                <section class="col-md-4 pe-2">
+
+
+
+                    <div class="input-group mb-2 custom-input">
+                        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+     rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+                            Difficulty Level:
+
+                        </span>
+                        <div class="y-line my-auto"></div>
+
+
+                        <select formControlName="difficultyLevel" class="form-select form-select-sm"
+                            aria-label="Small select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">easy</option>
+                            <option value="2">medium</option>
+                            <option value="3">hard</option>
+                        </select>
+                    </div>
+
+
+
+
+                    <div *ngIf="quizesForm.get('difficulty')?.errors && quizesForm.get('difficulty')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+ p-2">
+                        <mat-error class="text-red"
+                            *ngIf="quizesForm.get('difficulty')?.getError('required')">difficulty is
+                            required</mat-error>
+                        <mat-error class="text-red p-0 block"
+                            *ngIf="quizesForm.get('difficulty')?.getError('type')">difficulty isn't
+                            Validator</mat-error>
+                    </div>
+
+
+
+
+
+
+                </section>
+
+
+                <!-- menu 2 answer -->
+
+                <section class="col-md-4 pe-2 ">
+
+
+
+                    <div class="input-group mb-2 custom-input">
+                        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+                            Category Type:
+
+                        </span>
+                        <div class="y-line my-auto"></div>
+
+
+                        <select formControlName="categoryType" class="form-select form-select-sm"
+                            aria-label="Small select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">FE</option>
+                            <option value="2">BE</option>
+                            <option value="3">DO</option>
+                        </select>
+                    </div>
+
+
+
+                    <div *ngIf="quizesForm.get('answer')?.errors && quizesForm.get('answer')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+                        <mat-error class="text-red" *ngIf="quizesForm.get('answer')?.getError('required')">answer is
+                            required</mat-error>
+                        <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('answer')?.getError('type')">answer
+                            isn't
+                            Validator</mat-error>
+                    </div>
+
+
+
+
+                </section>
+
+
+
+
+                <!-- menu 3 type -->
+
+                <section class="col-md-4">
+
+
+
+                    <div class="input-group mb-2 custom-input">
+                        <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+       rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
+                            Group Name :
+
+                        </span>
+                        <div class="y-line my-auto"></div>
+
+
+                        <select formControlName="groupName" class="form-select form-select-sm"
+                            aria-label="Small select example">
+                            <option *ngFor="let item of tableGroub">{{item.name}}</option>
+
+                        </select>
+
+
+
+
+
+
+                    </div>
+
+                    <div *ngIf="quizesForm.get('type')?.errors && quizesForm.get('type')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+   p-2">
+                        <mat-error class="text-red" *ngIf="quizesForm.get('type')?.getError('required')">type is
+                            required</mat-error>
+                        <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('type')?.getError('type')">type
+                            isn't
+                            Validator</mat-error>
+                    </div>
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </mat-dialog-content>
+
+
+
+
+
+
+
+
+</form>
