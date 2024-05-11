@@ -20,6 +20,8 @@ return this.htpp.get(`question`);
 
 }
 
+
+
 addQuestion(data:any):Observable<any>{
   console.log(data);
   
@@ -33,8 +35,10 @@ deletQuestion(id:any):Observable<any>{
 
 }
 
-editQuestion(data:any,id:any):Observable<any>{
-  return this.htpp.put(`question/${id}`,data);
+editQuestion(answer:any,id:any):Observable<any>{
+  console.log(answer,id);
+  
+  return this.htpp.put(`question/${id}`,{answer:answer});
 
 }
 

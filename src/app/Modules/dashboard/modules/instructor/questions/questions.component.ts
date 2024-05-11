@@ -64,20 +64,20 @@ export class QuestionsComponent {
      console.log(action);
     if(action=='delet'){
     
-    console.log(result);
-    // this.deletGroup(result);
+    // console.log(result);
+    this.deletQuestions(result);
     }
     
     if(action=='add'){
     
-      console.log(result);
+      // console.log(result);
       this.addQuestion(result);
       }
       if(action=='edit'){
-    console.log(item._id);
+    // console.log(item._id);
     
-      console.log(result);
-      // this.editGroup(result,item._id);
+      // console.log(result.answer );
+      this.editQuestions(result.answer,item._id);
         
         }
     
@@ -98,11 +98,11 @@ export class QuestionsComponent {
 
     this._questionServ.addQuestion(groups).subscribe({
       next: (res) => {
-        // console.log(res);
+        console.log(res);
         this.is_Messg=res.message;
       },
       error: (err) => {
-        // console.log(err);
+        console.log(err);
         this._ToastrService.error(` add error : ${this.is_Messg}`);
 
       },
@@ -137,7 +137,7 @@ export class QuestionsComponent {
         // console.log('add complet');
     this._ToastrService.success(`edit succes: ,${this.is_Messg}`)
 
-this.allQuestions();
+     this.allQuestions();
       }
     });
 
@@ -145,6 +145,45 @@ this.allQuestions();
 
   }
 
+
+  
+ deletQuestions(id:number){
+
+    this._questionServ.deletQuestion(id).subscribe({
+      next:(res)=>{
+        this.is_Messg=res.message;
+        // console.log(res);
+        
+      },
+      error:(err)=>{
+        // console.log(err);
+        this._ToastrService.error(`delet error: ,${this.is_Messg}`)
+
+      },
+      complete:()=>{
+        // console.log('---delet comp---');
+        this.allQuestions();
+        this._ToastrService.success(`delet succes: ,${this.is_Messg}`)
+
+      }
+
+
+
+
+    })
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
 
 
     
