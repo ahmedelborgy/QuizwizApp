@@ -2,7 +2,8 @@
   <section class="w-100 ">
     <div class="d-flex justify-content-between">
       <div class=" d-flex justify-content-between align-items-center w-65 px-3">
-        <h5>Dashboard</h5>
+        <h4 *ngIf="!title">Dashboard</h4>
+        <h4 *ngIf="title">{{ title }}</h4>
         <div class="navCaption  d-flex align-items-center justify-content-center  ">
           <img src="../../../../../assets/images/alert.png " class="d-inline-block mx-2" alt="">
           <h6 class="m-2">New quiz</h6>
@@ -30,7 +31,7 @@
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="viewProfile()">
               <mat-icon>manage_accounts</mat-icon>
-              <span>View Profile</span>
+              <span>Edit Profile</span>
             </button>
             <button mat-menu-item (click)="ChangePassword()">
               <mat-icon>lock_open</mat-icon>
@@ -44,4 +45,8 @@
         </div>
       </div>
     </div>
+
+    <!-- <div class="navbar">
+      <div class="title">title : {{ title }}</div>
+    </div> -->
   </section>

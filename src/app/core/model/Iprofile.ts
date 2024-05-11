@@ -4,6 +4,6 @@ export interface IProfile {
   last_name: string;
   email: string;
   group: string;
-  status: 'active' | 'inactive';
+  status: 'active' | 'inactive' | 'deleted';
   role: 'Instructor' | 'Student' | 'Admin';
 }
