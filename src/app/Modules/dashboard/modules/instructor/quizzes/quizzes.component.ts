@@ -6,6 +6,7 @@ import { HelperService } from 'src/app/core/helperServic/helper.service';
 import { Iquestions } from '../questions/interFac/iquestions';
 import { QuizzesService } from '../services/quizzes.service';
 import { AddEditQuizesComponent } from './components/add-edit-quizes/add-edit-quizes.component';
+import { FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-quizzes',
   templateUrl: './quizzes.component.html',
@@ -47,8 +48,27 @@ export class QuizzesComponent {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       console.log(result)
-      
+      if (result) {
+        this.addQuize(result)
+      }
     });
   }
 
+
+  addQuize(data:FormGroup){
+    console.log(data);
+    
+    this._QuizzesService.onAddQuize(data).subscribe({
+      next:(res)=>{
+        console.log(res)
+      },
+      error:()=>{
+
+      },
+      complete:()=>{
+        this._ToastrService.success('Saved Successfuly');
+        this.getIncommingQuiz();
+      }
+    })
+  }
 }

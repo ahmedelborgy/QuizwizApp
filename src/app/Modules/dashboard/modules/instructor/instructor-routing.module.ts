@@ -12,7 +12,7 @@ const routes: Routes = [{
     { path: 'results', loadChildren: () => import('./results/results.module').then(m => m.ResultsModule), data: { title: 'Results' }, title: 'Results' },
     { path: 'students', loadChildren: () => import('./students/students.module').then(m => m.StudentsModule), data: { title: 'Students' }, title: 'Students' },
     { path: 'editProfile', component: EditProfileComponent, title: 'Edit Profile', data: { title: 'Edit Profile' } },
-
+    { path: 'questions', loadChildren: () => import('./questions/questions.module').then(m => m.QuestionsModule) },
 
   ]
 },
