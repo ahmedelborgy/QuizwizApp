@@ -45,7 +45,7 @@
         </div>
 
 
-        
+
         <section class="container-fluid">
             <div class="row justify-content-between flex-nowrap">
                 <!-- menu 1 duration -->
@@ -57,7 +57,7 @@
                     <div class="input-group mb-2 custom-input">
                         <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
      rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
-     Duration:
+                            Duration:
 
                         </span>
                         <div class="y-line my-auto"></div>
@@ -77,8 +77,7 @@
 
                     <div *ngIf="quizesForm.get('duration')?.errors && quizesForm.get('duration')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
  p-2">
-                        <mat-error class="text-red"
-                            *ngIf="quizesForm.get('duration')?.getError('required')">duration is
+                        <mat-error class="text-red" *ngIf="quizesForm.get('duration')?.getError('required')">duration is
                             required</mat-error>
                         <mat-error class="text-red p-0 block"
                             *ngIf="quizesForm.get('duration')?.getError('type')">duration isn't
@@ -102,7 +101,7 @@
                     <div class="input-group mb-2 custom-input">
                         <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
        rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
-       No Of Questions:
+                            No Of Questions:
 
                         </span>
                         <div class="y-line my-auto"></div>
@@ -125,11 +124,14 @@
 
 
 
-                    <div *ngIf="quizesForm.get('noOfQuestions')?.errors && quizesForm.get('noOfQuestions')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+                    <div *ngIf="quizesForm.get('noOfQuestions')?.errors && quizesForm.get('noOfQuestions')?.touched"
+                        class="text-red my-2 mx-auto p-0 text-start alert alert-danger
    p-2">
-                        <mat-error class="text-red" *ngIf="quizesForm.get('noOfQuestions')?.getError('required')">noOfQuestions is
+                        <mat-error class="text-red"
+                            *ngIf="quizesForm.get('noOfQuestions')?.getError('required')">noOfQuestions is
                             required</mat-error>
-                        <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('noOfQuestions')?.getError('type')">noOfQuestions
+                        <mat-error class="text-red p-0 block"
+                            *ngIf="quizesForm.get('noOfQuestions')?.getError('type')">noOfQuestions
                             isn't
                             Validator</mat-error>
                     </div>
@@ -151,7 +153,7 @@
                     <div class="input-group mb-2 custom-input">
                         <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
        rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
-       Score Per Question :
+                            Score Per Question :
 
                         </span>
                         <div class="y-line my-auto"></div>
@@ -172,11 +174,14 @@
 
                     </div>
 
-                    <div *ngIf="quizesForm.get('scorePerQuestion')?.errors && quizesForm.get('scorePerQuestion')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
+                    <div *ngIf="quizesForm.get('scorePerQuestion')?.errors && quizesForm.get('scorePerQuestion')?.touched"
+                        class="text-red my-2 mx-auto p-0 text-start alert alert-danger
    p-2">
-                        <mat-error class="text-red" *ngIf="quizesForm.get('scorePerQuestion')?.getError('required')">scorePerQuestion is
+                        <mat-error class="text-red"
+                            *ngIf="quizesForm.get('scorePerQuestion')?.getError('required')">scorePerQuestion is
                             required</mat-error>
-                        <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('scorePerQuestion')?.getError('scorePerQuestion')">scorePerQuestion
+                        <mat-error class="text-red p-0 block"
+                            *ngIf="quizesForm.get('scorePerQuestion')?.getError('scorePerQuestion')">scorePerQuestion
                             isn't
                             Validator</mat-error>
                     </div>
@@ -228,7 +233,7 @@ ps-3  border border-1" placeholder="description:" formControlName="description">
 
 
         <div class="input-group mb-2 custom-input">
-            <span class="input-group-text px-2 py-3  fs-  rounded rounded-start-3
+            <span class="input-group-text px-2 py-3  rounded rounded-start-3
              rounded-end-0 border border-1 border-end-0 bg-mainColor_light">
                 Schedule :
 
@@ -236,19 +241,20 @@ ps-3  border border-1" placeholder="description:" formControlName="description">
             <!-- <div class="y-line my-auto"></div> -->
             <mat-form-field class="form-control">
                 <mat-label>Choose a date</mat-label>
-                <input formControlName="schadule"  matInput [matDatepicker]="picker">
+                <input formControlName="schadule" matInput [matDatepicker]="picker">
                 <mat-datepicker-toggle matIconSuffix [for]="picker">
-                  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+                    <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                 </mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
+            </mat-form-field>
         </div>
 
         <div *ngIf="quizesForm.get('schedule')?.errors && quizesForm.get('schedule')?.touched" class="text-red my-2 mx-auto p-0 text-start alert alert-danger
          p-2">
             <mat-error class="text-red" *ngIf="quizesForm.get('schedule')?.getError('required')">schedule is
                 required</mat-error>
-            <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('schedule')?.getError('schedule')">schedule isn't
+            <mat-error class="text-red p-0 block" *ngIf="quizesForm.get('schedule')?.getError('schedule')">schedule
+                isn't
                 Validator</mat-error>
         </div>
 
