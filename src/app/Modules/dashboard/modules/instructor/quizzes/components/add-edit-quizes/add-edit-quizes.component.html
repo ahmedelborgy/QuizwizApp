@@ -108,7 +108,7 @@
                         <div class="y-line my-auto"></div>
 
 
-                        <select formControlName="noOfQuestions" class="form-select form-select-sm"
+                        <select formControlName="questions_number" class="form-select form-select-sm"
                             aria-label="Small select example">
                             <option selected>Open this select menu</option>
                             <option value="1">1</option>
@@ -157,7 +157,7 @@
                         <div class="y-line my-auto"></div>
 
 
-                        <select formControlName="scorePerQuestion" class="form-select form-select-sm"
+                        <select formControlName="score_per_question" class="form-select form-select-sm"
                             aria-label="Small select example">
                             <option value="1">5</option>
                             <option value="2">10</option>
@@ -234,9 +234,9 @@ ps-3  border border-1" placeholder="description:" formControlName="description">
 
             </span>
             <!-- <div class="y-line my-auto"></div> -->
-            <mat-form-field class="w-75">
+            <mat-form-field class="form-control">
                 <mat-label>Choose a date</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input formControlName="schadule"  matInput [matDatepicker]="picker">
                 <mat-datepicker-toggle matIconSuffix [for]="picker">
                   <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
                 </mat-datepicker-toggle>
@@ -273,12 +273,12 @@ ps-3  border border-1" placeholder="description:" formControlName="description">
                         <div class="y-line my-auto"></div>
 
 
-                        <select formControlName="difficultyLevel" class="form-select form-select-sm"
+                        <select formControlName="difficulty" class="form-select form-select-sm"
                             aria-label="Small select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">easy</option>
-                            <option value="2">medium</option>
-                            <option value="3">hard</option>
+                            <option value="easy">easy</option>
+                            <option value="medium">medium</option>
+                            <option value="hard">hard</option>
                         </select>
                     </div>
 
@@ -318,12 +318,12 @@ ps-3  border border-1" placeholder="description:" formControlName="description">
                         <div class="y-line my-auto"></div>
 
 
-                        <select formControlName="categoryType" class="form-select form-select-sm"
+                        <select formControlName="type" class="form-select form-select-sm"
                             aria-label="Small select example">
                             <option selected>Open this select menu</option>
-                            <option value="1">FE</option>
-                            <option value="2">BE</option>
-                            <option value="3">DO</option>
+                            <option value="FE">FE</option>
+                            <option value="BE">BE</option>
+                            <option value="DO">DO</option>
                         </select>
                     </div>
 
@@ -361,9 +361,9 @@ ps-3  border border-1" placeholder="description:" formControlName="description">
                         <div class="y-line my-auto"></div>
 
 
-                        <select formControlName="groupName" class="form-select form-select-sm"
+                        <select formControlName="group" class="form-select form-select-sm"
                             aria-label="Small select example">
-                            <option *ngFor="let item of tableGroub">{{item.name}}</option>
+                            <option *ngFor="let item of tableGroub" [value]="item._id">{{item.name}}</option>
 
                         </select>
 
