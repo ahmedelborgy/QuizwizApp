@@ -30,7 +30,6 @@ export class QuizzesComponent {
 
   ngOnInit(): void {
     this.getIncommingQuiz();
-    this.openDialog('123')
   }
 
   getIncommingQuiz() {

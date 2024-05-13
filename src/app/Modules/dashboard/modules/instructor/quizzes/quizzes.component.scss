@@ -1,3 +1,13 @@
+
+@import '../../../../../../assets/styles/layout';
+@import '../../../../../../assets/styles/abstracts/utilities';
 .addQ:hover{
     background-color: rgba(170, 164, 164, 0.385);
 }
+.cards{
+    border:1px solid #00000033;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  
