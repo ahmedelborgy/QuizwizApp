@@ -1,10 +1,11 @@
-<!-- <p class="bg-warning" [routerLink]="['/dashboard/instructor/questions']" routerLinkActive="router-link-active" >questions works!</p> -->
 
 <section>
     <div class="row">
+
         <div class="col-md-6">
-            <div class="row mt-4 ms-4 w-75">
+            <div class="row mt-4 ms-4 w-75  flex-nowrap">
                 <div class="col-md-5 col-sm-4 border rounded-2 text-center mx-2 p-4 addQ">
+
                     <a class=" text-decoration-none text-black myPointer" (click)="openAddEditQuizes()">
                         <img src="../../../../../../assets/images/new quiz icon.svg" alt="">
                         <h5>Set up a new quiz</h5>
@@ -21,7 +22,7 @@
         <div class="col-md-5 border rounded-2 mt-4">
             <div class="row p-0 m-0">
                 <h3>Upcoming 5 quizzes</h3>
-                <section *ngFor="let item of quizes" class="col-md-6 my-2 ">
+                <section *ngFor="let item of quizes" class="col-md-12 my-2 px-2 ">
                     <div class="cards d-flex">
 
                         <div class="w-25">

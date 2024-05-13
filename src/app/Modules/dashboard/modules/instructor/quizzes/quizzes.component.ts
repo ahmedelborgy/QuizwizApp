@@ -7,6 +7,7 @@ import { Iquestions } from '../questions/interFac/iquestions';
 import { QuizzesService } from '../services/quizzes.service';
 import { AddEditQuizesComponent } from './components/add-edit-quizes/add-edit-quizes.component';
 import { FormGroup } from '@angular/forms';
+import { CodeQuizesComponent } from './components/code-quizes/code-quizes.component';
 @Component({
   selector: 'app-quizzes',
   templateUrl: './quizzes.component.html',
@@ -17,7 +18,7 @@ export class QuizzesComponent {
   // is_Messg:string|any;
 
   quizes: any;
-
+ code:string='';
 
   constructor(private _QuizzesService: QuizzesService,
     private _Router: Router,
@@ -28,7 +29,7 @@ export class QuizzesComponent {
   ) { }
 
   ngOnInit(): void {
-    this.getIncommingQuiz()
+    this.getIncommingQuiz();
   }
 
   getIncommingQuiz() {
@@ -58,17 +59,41 @@ export class QuizzesComponent {
   addQuize(data:FormGroup){
     console.log(data);
     
+    
     this._QuizzesService.onAddQuize(data).subscribe({
       next:(res)=>{
-        console.log(res)
+        console.log(res);
+       
+        this.code=res.data.code
+        console.log(this.code);
+        
       },
       error:()=>{
 
       },
       complete:()=>{
         this._ToastrService.success('Saved Successfuly');
+        this.openDialog(this.code)
         this.getIncommingQuiz();
       }
     })
   }
+
+
+
+
+
+
+
+  openDialog(code:string): void {
+    const dialogRef = this.dialog.open(CodeQuizesComponent, {
+      data: {code},
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed',result);
+     
+    });
+  
+}
 }

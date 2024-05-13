@@ -1,0 +1,31 @@
+
+
+
+
+
+<section class="text-center px-5 py-3">
+    <i class="exclamation fa-solid fa-circle-exclamation text-mainColor_lightGreen py-3"></i>
+    <h3 class="pb-2">Are you copy code?</h3>
+    <p class=" pb-4 text-muted">
+
+    </p>
+
+    <section class=" w-100 mb-2">
+
+
+        <input type="text"  [value]="data.code" id="myInput" class="p-2  border border-success border-1  position-relative">
+    
+    
+        <button class="p-2 border border-success border-1 "  (click)="myFunction()"><i class="fa-sharp text-success fa-regular fa-copy"></i></button>
+    
+    
+    
+    </section>
+
+
+    <div class="w-100 d-flex justify-content-around pb-4">
+      <button class="btn bg-mainColor_lightGreen px-4 py-2 "
+       (click)="onNoClick()">Cancel
+       </button>
+    </div>
+  </section>
