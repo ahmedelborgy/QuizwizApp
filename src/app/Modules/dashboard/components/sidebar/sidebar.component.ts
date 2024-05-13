@@ -57,7 +57,7 @@ export class SidebarComponent {
 
     {
       text: 'Quizes',
-      link: '/dashboard/student/quizzes',
+      link: '/dashboard/students/quizzes',
       icon: "fa-solid fa-hotel",
       isActive: this.isStudent(),
     },
