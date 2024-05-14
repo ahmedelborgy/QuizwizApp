@@ -1,1 +1,46 @@
-<p>results works!</p>
+<section id="groubs">
+
+  <section class="groubList container my-4  py-4  px-4 ">
+
+    <section *ngIf="tableData.length>0" id="main-table  " class="">
+      <section class="heder  w-100  d-flex align-items-center  mb-3">
+
+        <h4>Results</h4>
+
+      </section>
+      <table class=" w-100">
+        <thead class="mb-2">
+          <th class="rounded-start-3">Title </th>
+          <th>Group name</th>
+          <th>No. of persons in group</th>
+          <th>Participants</th>
+          <th>Date</th>
+          <th class="rounded-end-3">View</th>
+        </thead>
+        <tbody>
+          <tr class="" *ngFor="let item of tableData">
+            <td>{{item.quiz.title }}</td>
+            <td>{{item.quiz.group}}</td>
+            <td>{{item.quiz.instructor}}</td>
+            <td>{{item.participants}}</td>
+            <td>{{item.quiz.createdAt | date}}</td>
+
+            <td class=" text-center">
+              <div class="w-75 bg-mainColor_lightGreen fw-bold p-1 rounded rounded-3 pointer">
+                view
+              </div>
+
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </section>
+    <section *ngIf="tableData.length==0" class="noData w-50  m-auto">
+      <h2 class="text-center text-danger">No Data</h2>
+      <img src="./assets/images/noDataA.png" class="w-100" alt="noData">
+    </section>
+
+  </section>
+
+</section>

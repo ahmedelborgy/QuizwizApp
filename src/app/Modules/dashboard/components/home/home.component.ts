@@ -12,6 +12,7 @@ import { IStudent } from 'src/app/core/model/istudent';
 export class HomeComponent implements OnInit {
 
   studentTable: IStudent[] = [];
+  quizes: any;
 
   constructor(private _StudentsService: StudentsService, private _Router: Router, private _QuizzesService: QuizzesService) { }
 
@@ -29,13 +30,16 @@ export class HomeComponent implements OnInit {
     })
   }
 
+
   getIncommingQuiz() {
     this._QuizzesService.incommingQuiz().subscribe({
-      next: (value) => {
-        console.log(value)
+      next: (res) => {
+        console.log(res)
+        this.quizes = res;
       },
     })
   }
+
 
   studentsModule() {
     this._Router.navigate(['/dashboard/instructor/students'])
