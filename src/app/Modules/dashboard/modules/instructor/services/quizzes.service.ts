@@ -10,6 +10,13 @@ export class QuizzesService {
 
   constructor(private _HttpClient: HttpClient) { }
 
+  ongetAllQuizzes(): Observable<any> {
+    return this._HttpClient.get(`quiz`);
+  }
+
+  ongetCompletedQuizzes(): Observable<any> {
+    return this._HttpClient.get(`quiz/completed`);
+  }
 
   incommingQuiz(): Observable<any> {
     return this._HttpClient.get('quiz/incomming')

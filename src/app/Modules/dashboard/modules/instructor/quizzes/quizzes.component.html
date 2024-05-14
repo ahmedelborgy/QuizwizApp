@@ -18,12 +18,51 @@
                     </a>
                 </div>
             </div>
+
+            <div class="col-md-11 border rounded-2 ms-4 mt-5">
+                <h5 class="mt-4 ms-3">Get All Quizes</h5>
+                <table class="m-auto mb-4" style="width: 90%;">
+
+
+
+                    <thead class="mb-2">
+                        <th class="rounded-start-4">Title </th>
+                        <th>Desc</th>
+                        <th>difficulty</th>
+                        <th>Status</th>
+                        <th class="rounded-end-4">Actions</th>
+                    </thead>
+    
+                    <tbody>
+    
+    
+    
+                        <tr class="" *ngFor="let item of allQuizzes">
+                            <td>{{item.title}}</td>
+                            <td>{{item.description}}</td>
+                            <td>{{item.difficulty}}</td>
+                            <td>{{item.status}}</td>
+                            <td class=" ">
+                                <div class="w-50 m-auto d-flex justify-content-center">
+    
+    
+                                    <i class="fa-solid fa-pen-to-square mx-1"></i>
+                                    <i class="fa-solid fa-trash-arrow-up  mx-1 "></i>
+                                    <i class="fa-regular fa-eye-slash  mx-1"></i>
+                                </div>
+    
+                            </td>
+                        </tr>
+    
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col-md-5 border rounded-2 mt-4">
             <div class="row p-0 m-0">
                 <h3>Upcoming 5 quizzes</h3>
                 <section *ngFor="let item of quizes" class="col-md-12 my-2 px-2 ">
-                    <div class="cards d-flex">
+                    <div class="cards d-flex  border rounded-2">
 
                         <div class="w-25">
                             <img src="../../../../../../assets/images/Quiz img.svg" alt="" class="img-fluid w-100">
@@ -43,8 +82,55 @@
 
                     </div>
 
+                    
                 </section>
+
+                
             </div>
+            
+        </div>
+
+        <div class="col-md-11 border rounded-2 ms-4 mt-5">
+            <h5 class="mt-4 ms-3 mb-2">Completed Quizes</h5>
+            <table class="m-auto mb-4" style="width: 90%;">
+
+
+
+                <thead class="mb-2">
+                    <th class="rounded-start-4">Title </th>
+                    <th>Desc</th>
+                    <th>Group</th>
+                    <th>difficulty</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th class="rounded-end-4">Actions</th>
+                </thead>
+
+                <tbody>
+
+
+
+                    <tr class="" *ngFor="let item of completedQuizzes">
+                        <td>{{item.title}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.group}}</td>
+                        <td>{{item.difficulty}}</td>
+                        <td>{{item.schadule | date}}</td>
+                        <td>{{item.status}}</td>
+                        <td class=" ">
+                            <div class="w-50 m-auto d-flex justify-content-center">
+
+
+                                <i class="fa-solid fa-pen-to-square mx-1"></i>
+                                <i class="fa-solid fa-trash-arrow-up  mx-1 "></i>
+                                <i class="fa-regular fa-eye-slash  mx-1"></i>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
         </div>
     </div>
 </section>
