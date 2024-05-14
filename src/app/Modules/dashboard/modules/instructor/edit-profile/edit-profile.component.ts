@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { IProfile } from 'src/app/core/model/Iprofile';
 import { EditProfileService } from '../services/edit-profile.service';
-import { IUserProfile } from 'src/app/core/model/i-user-profile';
+import { IUserProfile } from '../../../../../core/model/i-user-profile';
 
 @Component({
   selector: 'app-edit-profile',

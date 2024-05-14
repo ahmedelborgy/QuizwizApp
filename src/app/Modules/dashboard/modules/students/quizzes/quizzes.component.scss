@@ -1,4 +1,21 @@
+
+@import "../../../../../../assets/styles/layout";
+
+
+// $mainColor_lightGreen
+
+.exclamation {
+  font-size: 70px;
+}
 .addQ:hover{
     background-color: rgba(170, 164, 164, 0.385);
-    cursor: pointer;
+      cursor: pointer;
 }
+
+.cards{
+    border:1px solid #00000033;
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+

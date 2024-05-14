@@ -22,6 +22,40 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
+
+
+import {MatStepperModule} from '@angular/material/stepper';
+
+
+
+
+import {Component, Injectable} from '@angular/core';
+
+import {NgFor} from '@angular/common';
+import {MatRadioModule} from '@angular/material/radio';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @NgModule({
 
   imports: [
@@ -53,7 +87,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatStepperModule,
+    MatRadioModule
 
 
 
@@ -80,7 +116,9 @@ import { NgxSpinnerModule } from "ngx-spinner";
     MatDatepickerModule,
     MatNativeDateModule,
 
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    MatStepperModule,
+    MatRadioModule
 
 
 
