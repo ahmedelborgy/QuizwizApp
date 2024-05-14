@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StudentQuizeService } from './services/student-quize.service';
+import { QuizzesService } from '../../instructor/services/quizzes.service';
 
 
 
@@ -24,8 +25,8 @@ constructor(
   private quizeServ:StudentQuizeService,
   private _Router: Router,
   private _ToastrService: ToastrService,
-  public dialog: MatDialog
-
+  public dialog: MatDialog,
+  private _QuizzesService:QuizzesService
 ){
 
 
@@ -35,7 +36,7 @@ constructor(
 
 
 ngOnInit(): void {
-    this.getCompletedQuizes();
+    this.getCompletedQuizzes();
   }
 
 openDialogJionQuiz(): void {
@@ -60,7 +61,14 @@ openDialogJionQuiz(): void {
 }
 
 
-
+getCompletedQuizzes() {
+  this._QuizzesService.ongetCompletedQuizzes().subscribe({
+    next: (res) => {
+      console.log(res)
+      this.completedQuizes = res;
+    },
+  })
+}
 
 
 
