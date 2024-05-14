@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ResultsService } from '../services/results.service';
+import { ToastrService } from 'ngx-toastr';
+import { IResultsQuiz } from 'src/app/core/model/iresults';
 
 @Component({
   selector: 'app-results',
@@ -6,5 +9,36 @@ import { Component } from '@angular/core';
   styleUrls: ['./results.component.scss']
 })
 export class ResultsComponent {
+
+  tableData: IResultsQuiz[] = [];
+
+
+  constructor(private _ResultsService: ResultsService, private _ToastrService: ToastrService) { }
+
+  ngOnInit(): void {
+    this.allResults();
+  }
+
+
+
+  allResults() {
+    // console.log('mmmmmmm');
+
+    this._ResultsService.getResults().subscribe({
+      next: (res) => {
+        console.log(res);
+        this.tableData = res
+      },
+      error: (err) => {
+        console.log(err);
+
+      },
+      complete: () => {
+      }
+    })
+  }
+
+
+
 
 }

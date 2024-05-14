@@ -71,7 +71,7 @@ export class SidebarComponent {
 
     {
       text: 'Results',
-      link: '/dashboard/student/results',
+      link: '/dashboard/students/results',
       icon: "fa-solid fa-calendar-days",
       isActive: this.isStudent(),
     },
