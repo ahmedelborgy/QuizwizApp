@@ -9,7 +9,7 @@
 
 
 
-
+<p>{{quize}}</p>
 
 
 <mat-stepper  class=" w-75 m-auto" labelPosition="bottom" #stepper>
@@ -22,7 +22,7 @@
    id="demo-optional-label-group"
    class="demo-radio-group"
    [(ngModel)]="optionalLabelText"
-   (ngModelChange)="updateOptionalLabel()">
+   (ngModelChange)="updateOptionalLabel(item._id)">
    <!-- <mat-radio-button
      class="demo-radio-button d-block"
      *ngFor="let optionalLabelTextChoice of optionalLabelTextChoices"
@@ -80,6 +80,8 @@
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button (click)="submit(quize)">submit</button>
+
       </div>
     </mat-step>
 
@@ -119,3 +121,153 @@
 
 
 </section>
+
+
+
+
+
+
+
+
+
+
+<!-- ----------------------- -->
+
+<br>
+
+<br>
+
+<br>
+
+
+
+<section class="container my-4 ">
+
+
+
+
+
+
+
+
+
+
+
+    <mat-stepper  class=" w-75 m-auto" labelPosition="bottom" #stepper>
+        <mat-step *ngFor="let item of questions" [stepControl]="firstFormGroup">
+       <p>{{item._id}}</p>
+       <h4>{{item.title}} ?</h4>
+    
+    
+       <mat-radio-group
+       id="demo-optional-label-group"
+       class="demo-radio-group"
+       [(ngModel)]="optionalLabelText"
+       (ngModelChange)="updateOptionalLabel(item._id)">
+       <!-- <mat-radio-button
+         class="demo-radio-button d-block"
+         *ngFor="let optionalLabelTextChoice of optionalLabelTextChoices"
+         [value]="optionalLabelTextChoice">
+         {{optionalLabelTextChoice}}
+    
+    
+    
+    
+         
+       </mat-radio-button> -->
+    
+       <br><br>
+    
+       <mat-radio-button  class="demo-radio-button d-block"
+    
+       [value]="item.options.A">{{item.options.A}}
+     </mat-radio-button>
+    
+    
+    
+     <mat-radio-button  class="demo-radio-button d-block"
+    
+       [value]="item.options.A">{{item.options.B}}
+     </mat-radio-button>
+    
+    
+    
+     <mat-radio-button  class="demo-radio-button d-block"
+    
+       [value]="item.options.A">{{item.options.C}}
+     </mat-radio-button>
+    
+    
+     <mat-radio-button  class="demo-radio-button d-block"
+    
+     [value]="item.options.A">{{item.options.D}}
+    </mat-radio-button>
+    
+    
+    
+    
+     </mat-radio-group> 
+    
+     <button mat-button matStepperNext>Next</button>
+        </mat-step>
+        
+    
+    
+    
+    
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button (click)="submit(quize)">submit</button>
+
+          </div>
+        </mat-step>
+    
+    
+    
+    
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      </mat-stepper>
+      
+    
+    
+    
+    
+    </section>
+
+
+
+
+
+
+
+
+

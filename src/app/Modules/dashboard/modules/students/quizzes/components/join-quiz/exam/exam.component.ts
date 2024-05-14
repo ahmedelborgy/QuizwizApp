@@ -15,31 +15,36 @@ export class ExamComponent implements OnInit {
 
  questionsData:any;
  optionalLabelText: string='';
+ answersAllQuestions:any[]=[];
+ answersQuestion:object={};
+quize:string='';
+
+
  optionalLabelTextChoices: string[] = ['Option 1', 'Option 2', 'Option 3'];
-//  questions:any= [
-//   {
-//       _id: "6640018c58f7023d5efe634b",
-//       title: "What is the purpose of JavaScript in web development?",
-//       options: {
-//           A: "a",
-//           B: "b",
-//           C: "c",
-//           D: "d",
-//           _id: "6640018c58f7023d5efe634c"
-//       }
-//   },
-//   {
-//       _id: "65d861b9ef9b2594e369b716",
-//       title: "What is the purpose of JavaScript in web development?",
-//       options: {
-//           A: "Adding interactivity to web pages",
-//           B: " Styling web pages",
-//           C: "Storing data on the server",
-//           D: "Defining page structure",
-//           _id: "65d861b9ef9b2594e369b717"
-//       }
-//   }
-// ]
+ questions:any= [
+  {
+      _id: "6640018c58f7023d5efe634b",
+      title: "What is the purpose of JavaScript in web development?",
+      options: {
+          A: "a",
+          B: "b",
+          C: "c",
+          D: "d",
+          _id: "6640018c58f7023d5efe634c"
+      }
+  },
+  {
+      _id: "65d861b9ef9b2594e369b716",
+      title: "What is the purpose of JavaScript in web development?",
+      options: {
+          A: "Adding interactivity to web pages",
+          B: " Styling web pages",
+          C: "Storing data on the server",
+          D: "Defining page structure",
+          _id: "65d861b9ef9b2594e369b717"
+      }
+  }
+]
 
   constructor(private _formBuilder: FormBuilder,
     private quizeServ:StudentQuizeService,
@@ -56,18 +61,31 @@ export class ExamComponent implements OnInit {
 ngOnInit(): void {
   console.log(this.quizeServ.quizeDetailes);
   console.log(this.quizeServ.quizeDetailes.data.quiz);
+  this.quize=this.quizeServ.quizeDetailes.data.quiz;
+  this.getquizWithoutAnswers(this.quizeServ.quizeDetailes.data.quiz);
+  console.log(this.quize);
   
-  this.getquizWithoutAnswers(this.quizeServ.quizeDetailes.data.quiz)
 }
 
- updateOptionalLabel() {
+
+ updateOptionalLabel(id:any) {
     this._matStepperIntl.optionalLabel = this.optionalLabelText;
     // Required for the optional label text to be updated
     // Notifies the MatStepperIntl service that a change has been made
     this._matStepperIntl.changes.next();
     console.log(this._matStepperIntl.optionalLabel );
     console.log( this._matStepperIntl);
-    
+    console.log(id);
+    this.answersQuestion={
+    question:id,
+    answer:this._matStepperIntl.optionalLabel 
+
+    }
+
+
+    this.answersAllQuestions.push(this.answersQuestion);
+      console.log(this.answersAllQuestions);
+
     
   }
 
@@ -149,6 +167,38 @@ console.log(err);
     secondCtrl: ['', Validators.required],
   });
 
+
+
+
+submit(quize:any){
+
+console.log(this.answersAllQuestions);
+console.log(quize);
+
+this.quizeServ.submitQuiz(quize,this.answersAllQuestions).subscribe({
+
+ next:(res)=>{
+   console.log(res);
+
+   console.log(res);
+   
+
+    },
+    error:(err)=>{
+console.log(err);
+
+    },
+    complete:()=>{
+
+    }
+
+
+
+
+
+
+})
+}
 
 
 
