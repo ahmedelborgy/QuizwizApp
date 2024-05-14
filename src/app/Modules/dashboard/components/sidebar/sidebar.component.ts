@@ -33,6 +33,12 @@ export class SidebarComponent {
       isActive: this.isInstructor(),
     },
 
+    {
+      text: 'Dashboard',
+      link: '/dashboard/homestudent',
+      icon: 'fa-solid fa-house',
+      isActive: this.isStudent(),
+    },
 
     {
       text: 'Students',
