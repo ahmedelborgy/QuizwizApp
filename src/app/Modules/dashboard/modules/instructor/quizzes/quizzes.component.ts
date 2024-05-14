@@ -20,7 +20,7 @@ export class QuizzesComponent {
   quizes: any;
   allQuizzes: any;
   completedQuizzes: any;
- code:string='';
+  code: string = '';
 
   constructor(private _QuizzesService: QuizzesService,
     private _Router: Router,
@@ -33,6 +33,7 @@ export class QuizzesComponent {
   ngOnInit(): void {
     this.getIncommingQuiz();
     this.getAllQuizzes();
+    this.getCompletedQuizzes();
   }
 
   getIncommingQuiz() {
@@ -57,12 +58,12 @@ export class QuizzesComponent {
     this._QuizzesService.ongetCompletedQuizzes().subscribe({
       next: (res) => {
         console.log(res)
-        this.allQuizzes = res;
+        this.completedQuizzes = res;
       },
     })
   }
 
-  openAddEditQuizes(){
+  openAddEditQuizes() {
     const dialogRef = this.dialog.open(AddEditQuizesComponent, {
       // data:item
     });
@@ -77,22 +78,22 @@ export class QuizzesComponent {
   }
 
 
-  addQuize(data:FormGroup){
+  addQuize(data: FormGroup) {
     console.log(data);
-    
-    
+
+
     this._QuizzesService.onAddQuize(data).subscribe({
-      next:(res)=>{
+      next: (res) => {
         console.log(res);
-       
-        this.code=res.data.code
+
+        this.code = res.data.code
         console.log(this.code);
-        
-      },
-      error:()=>{
 
       },
-      complete:()=>{
+      error: () => {
+
+      },
+      complete: () => {
         this._ToastrService.success('Saved Successfuly');
         this.openDialog(this.code)
         this.getIncommingQuiz();
@@ -106,15 +107,15 @@ export class QuizzesComponent {
 
 
 
-  openDialog(code:string): void {
+  openDialog(code: string): void {
     const dialogRef = this.dialog.open(CodeQuizesComponent, {
-      data: {code},
+      data: { code },
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed',result);
-     
+      console.log('The dialog was closed', result);
+
     });
-  
-}
+
+  }
 }

@@ -27,8 +27,8 @@
 
                     <thead class="mb-2">
                         <th class="rounded-start-4">Title </th>
-                        <th>Desc</th>
-                        <th>difficulty</th>
+                        <th>Schedule</th>
+                        <th>Code</th>
                         <th>Status</th>
                         <th class="rounded-end-4">Actions</th>
                     </thead>
@@ -39,8 +39,8 @@
     
                         <tr class="" *ngFor="let item of allQuizzes">
                             <td>{{item.title}}</td>
-                            <td>{{item.description}}</td>
-                            <td>{{item.difficulty}}</td>
+                            <td>{{item.schadule | date}}</td>
+                            <td>{{item.code}}</td>
                             <td>{{item.status}}</td>
                             <td class=" ">
                                 <div class="w-50 m-auto d-flex justify-content-center">
