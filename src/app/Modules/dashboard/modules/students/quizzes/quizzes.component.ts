@@ -14,6 +14,10 @@ import { StudentQuizeService } from './services/student-quize.service';
 })
 export class QuizzesComponent {
 
+
+  
+completedQuizes:any;
+
 is_Messg: any;
 dataCodeQuize:any;
 constructor(
@@ -30,7 +34,9 @@ constructor(
 }
 
 
-
+ngOnInit(): void {
+    this.getCompletedQuizes();
+  }
 
 openDialogJionQuiz(): void {
   const dialogRef = this.dialog.open(JoinQuizComponent, {
@@ -62,13 +68,7 @@ openDialogJionQuiz(): void {
   joinQuizeCode(code:any){
     this.quizeServ.joinQuiz(code).subscribe({
      
-      
-
-
-
-
-
-      next: (res) => {
+       next: (res) => {
         console.log(res);
         this.is_Messg=res.message;
         this.dataCodeQuize=res.data;
