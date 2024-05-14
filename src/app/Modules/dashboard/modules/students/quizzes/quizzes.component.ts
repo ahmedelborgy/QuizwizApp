@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StudentQuizeService } from './services/student-quize.service';
 
+
+
 @Component({
   selector: 'app-quizzes',
   templateUrl: './quizzes.component.html',
@@ -99,6 +101,7 @@ openDialogJionQuiz(): void {
 
 
       
+
     })
   }
 
