@@ -18,6 +18,8 @@ export class QuizzesComponent {
   // is_Messg:string|any;
 
   quizes: any;
+  allQuizzes: any;
+  completedQuizzes: any;
  code:string='';
 
   constructor(private _QuizzesService: QuizzesService,
@@ -30,6 +32,7 @@ export class QuizzesComponent {
 
   ngOnInit(): void {
     this.getIncommingQuiz();
+    this.getAllQuizzes();
   }
 
   getIncommingQuiz() {
@@ -37,6 +40,24 @@ export class QuizzesComponent {
       next: (res) => {
         console.log(res)
         this.quizes = res;
+      },
+    })
+  }
+
+  getAllQuizzes() {
+    this._QuizzesService.ongetAllQuizzes().subscribe({
+      next: (res) => {
+        console.log(res)
+        this.allQuizzes = res;
+      },
+    })
+  }
+
+  getCompletedQuizzes() {
+    this._QuizzesService.ongetCompletedQuizzes().subscribe({
+      next: (res) => {
+        console.log(res)
+        this.allQuizzes = res;
       },
     })
   }

@@ -1,1 +1,46 @@
-<p>quizzes works!</p>
+<section>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row mt-4 ms-4 w-75">
+                <div class="col-md-5 col-sm-4 border rounded-2 text-center mx-2 p-4 addQ">
+                    <a class=" text-decoration-none text-black myPointer">
+                        <img src="../../../../../../assets/images/new quiz icon.svg" alt="">
+                        <h5>Join Quiz</h5>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-5 border rounded-2 ms-5 mt-5">
+            <h4>Upcoming quizzes</h4>
+
+            <section *ngFor="let item of incomingQuizes" >
+                <div class="d-flex border rounded-2 mb-3 ms-2 me-2">
+
+                    <div class="w-25">
+                        <img src="../../../../../../assets/images/Quiz img.svg" alt="" class="img-fluid w-100">
+                    </div>
+                    <div class=" px-3 d-flex justify-content-between align-items-center w-100">
+                        <div>
+                            <h5>Title : {{item.title}}</h5>
+                            <h6>Description : {{item.description}}</h6>
+                            <h6>Date : {{item.schadule | date :  "dd/MM/y h:ss:mm"}}</h6>
+
+                        </div>
+                        <div class="w-25 text-end">
+                            <img src="../../../../../../assets/images/Vector-1.svg" alt="" class="w-25">
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </section>
+        </div>
+        <div class="col-md-5 border rounded-2 ms-5 mt-5">
+            <h4>Completed Quizzes</h4>
+        </div>
+    </div>
+</section>

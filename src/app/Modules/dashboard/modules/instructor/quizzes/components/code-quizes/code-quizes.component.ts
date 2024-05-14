@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-code-quizes',
@@ -10,7 +11,7 @@ export class CodeQuizesComponent implements OnInit {
   copyText :any
   constructor(
     public dialogRef: MatDialogRef<CodeQuizesComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: any, private _ToastrService:ToastrService
   ) {}
 
 
@@ -26,7 +27,7 @@ export class CodeQuizesComponent implements OnInit {
    this.copyText= document.getElementById("myInput");
     this.copyText.select();
     navigator.clipboard.writeText(this.copyText.value);
-    alert("Copied the text: " + this.copyText.value);
+    this._ToastrService.success("Copied the text: " + this.copyText.value);
 
 
   }
