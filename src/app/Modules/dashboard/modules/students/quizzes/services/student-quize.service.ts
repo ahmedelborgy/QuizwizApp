@@ -44,7 +44,7 @@ return this.http.post(`quiz/join`,code);
         console.log(this.quizeDetailes.data);
         
         
-        return this.http.post(`quiz/submit${code}`,{data});
+        return this.http.post(`quiz/submit/${code}`,{data});
           }
 
 
