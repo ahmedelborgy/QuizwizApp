@@ -1,31 +1,32 @@
-<section>
-    <div class="row">
-        <div class="col-md-11 border rounded-2 ms-5 mt-5 d-flex flex-wrap w-75">
-            <h4>Upcoming quizzes</h4>
-            
-            <section *ngFor="let item of incomingQuizes" class="m-3">
-                <div class="d-flex border rounded-2 m-3 w-100 justify-content-between">
+<section id="home">
+    <div class="row g-3 flex-nowrap">
+        <div class="border rounded-2  mt-5">
+            <h4 class="ms-2 mt-4">Upcoming quizzes</h4>
+            <div class="d-flex flex-wrap mt-5">
+                <section *ngFor="let item of incomingQuizes" class="col-md-6 mb-5">
+                    <div class="d-flex border rounded-2 m-auto" style="width: 90%;">
 
-                    <div class="w-25">
-                        <img src="../../../../../../assets/images/Quiz img.svg" alt="" class="img-fluid w-100">
-                    </div>
-                    <div class=" px-3 d-flex justify-content-between align-items-center w-100">
-                        <div>
-                            <h5>Title : {{item.title}}</h5>
-                            <h6>Description : {{item.description}}</h6>
-                            <h6>Date : {{item.schadule | date :  "dd/MM/y h:ss:mm"}}</h6>
-
+                        <div class="w-25">
+                            <img src="../../../../../../assets/images/Quiz img.svg" alt="" class="w-100">
                         </div>
-                        <div class="w-25 text-end">
-                            <img src="../../../../../../assets/images/Vector-1.svg" alt="" class="w-25">
+                        <div class="ps-2 d-flex align-items-center justify-content-between w-75">
+                            <div class="w-100 pe-2">
+                                <h5>{{item.title}}</h5>
+                                <h6>{{item.description}}</h6>
+                                <h6>{{item.schadule | date : "dd/MM/y h:ss:mm:a"}}</h6>
+                                <h6 class="text-success d-flex justify-content-between">{{item.code}} 
+                                <i class="text-success fa-2x fa-regular fa-copy"></i></h6>
+
+                            </div>
                         </div>
+
+
                     </div>
 
+                </section>
+            </div>
 
-                </div>
-
-            </section>
         </div>
-        
+
     </div>
 </section>
