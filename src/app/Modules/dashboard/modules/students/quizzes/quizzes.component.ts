@@ -16,12 +16,11 @@ import { QuizzesService } from '../../instructor/services/quizzes.service';
 export class QuizzesComponent {
 
 
-  
-completedQuizes:any;
+
+  completedQuizes: any;
 
 is_Messg: any;
 dataCodeQuize:any;
-dataQuize:any;
 constructor(
   private quizeServ:StudentQuizeService,
   private _Router: Router,
@@ -33,67 +32,65 @@ constructor(
 
 
 
-}
+  }
 
 
-ngOnInit(): void {
+  ngOnInit(): void {
     this.getCompletedQuizzes();
   }
 
-openDialogJionQuiz(): void {
-  const dialogRef = this.dialog.open(JoinQuizComponent, {
-    width: '600px',
-    data: {},
-  });
+  openDialogJionQuiz(): void {
+    const dialogRef = this.dialog.open(JoinQuizComponent, {
+      width: '600px',
+      data: {},
+    });
 
-  dialogRef.afterClosed().subscribe((result: any) => {
-    console.log('The dialog was closed',result);
-    if(result!==undefined){
-      console.log(result);
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log('The dialog was closed', result);
+      if (result !== undefined) {
+        console.log(result);
 
-      this.joinQuizeCode(result);
-    }
-
-   
-  });
+        this.joinQuizeCode(result);
+      }
 
 
-
-}
-
-
-getCompletedQuizzes() {
-  this._QuizzesService.ongetCompletedQuizzes().subscribe({
-    next: (res) => {
-      console.log(res)
-      this.completedQuizes = res;
-    },
-  })
-}
+    });
 
 
 
+  }
 
-  joinQuizeCode(code:any){
+
+  getCompletedQuizzes() {
+    this._QuizzesService.ongetCompletedQuizzes().subscribe({
+      next: (res) => {
+        console.log(res)
+        this.completedQuizes = res;
+      },
+    })
+  }
+
+
+
+
+  joinQuizeCode(code: any) {
     this.quizeServ.joinQuiz(code).subscribe({
-     
-       next: (res) => {
+
+      next: (res) => {
         console.log(res);
         this.is_Messg=res.message;
         this.dataCodeQuize=res.data;
         this.quizeServ.exameDetailes(this.dataCodeQuize,code);
-        this.dataQuize=res.data.quiz;
-        console.log(this.dataCodeQuize,this.dataQuize);
-        
       },
       error: (err) => {
         console.log(err);
         this._ToastrService.error(` join error : ${this.is_Messg}`);
-      
+
 
       },
       complete:()=>{
-    this._Router.navigate([`/dashboard/students/quizzes/exam`,this.dataQuize]);
+        // console.log('add complet');
+    this._Router.navigate([`/dashboard/students/quizzes/exam`,code]);
     this._ToastrService.success(`join succes: ,${this.is_Messg}`)
       
       }
@@ -111,7 +108,7 @@ getCompletedQuizzes() {
 
 
 
-      
+
 
     })
   }
