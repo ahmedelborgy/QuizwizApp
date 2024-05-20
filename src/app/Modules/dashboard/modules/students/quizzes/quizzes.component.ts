@@ -17,7 +17,7 @@ export class QuizzesComponent {
 
 
 
-  completedQuizes: any;
+completedQuizes: any;
 
 is_Messg: any;
 dataCodeQuize:any;
@@ -90,7 +90,7 @@ constructor(
       },
       complete:()=>{
         // console.log('add complet');
-    this._Router.navigate([`/dashboard/students/quizzes/exam`,code]);
+    this._Router.navigate([`/dashboard/students/quizzes/exam`,this.dataCodeQuize.quiz]);
     this._ToastrService.success(`join succes: ,${this.is_Messg}`)
       
       }
