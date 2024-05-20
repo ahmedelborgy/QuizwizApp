@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StudentQuizeService } from '../../../services/student-quize.service';
 import { MatStepperIntl } from '@angular/material/stepper';
@@ -13,15 +13,16 @@ import { MatStepperIntl } from '@angular/material/stepper';
 })
 export class ExamComponent implements OnInit {
 
- questionsData:any;
+//  questionsData:any;
  optionalLabelText: string='';
  answersAllQuestions:any[]=[];
- answersQuestion:object={};
+ answersQuestion:any={};
 quize:string='';
+codeQuize:string='';
 
 
  optionalLabelTextChoices: string[] = ['Option 1', 'Option 2', 'Option 3'];
- questions:any= [
+ questionsData:any= [
   {
       _id: "6640018c58f7023d5efe634b",
       title: "What is the purpose of JavaScript in web development?",
@@ -51,9 +52,8 @@ quize:string='';
     private _Router: Router,
     private _ToastrService: ToastrService,
     public dialog: MatDialog,
-     private _matStepperIntl: MatStepperIntl
-
-
+     private _matStepperIntl: MatStepperIntl,
+     private _ActivatedRoute:ActivatedRoute
 
 
   ) {}
@@ -62,89 +62,74 @@ ngOnInit(): void {
   console.log(this.quizeServ.quizeDetailes);
   console.log(this.quizeServ.quizeDetailes.data.quiz);
   this.quize=this.quizeServ.quizeDetailes.data.quiz;
-  this.getquizWithoutAnswers(this.quizeServ.quizeDetailes.data.quiz);
+  // this.getquizWithoutAnswers(this.quizeServ.quizeDetailes.data.quiz);
   console.log(this.quize);
+this.codeQuize=this._ActivatedRoute.snapshot.params?.['quiz'];
+
+console.log(this.codeQuize);
+this.getquizWithoutAnswers(this.codeQuize);
+
   
 }
 
 
  updateOptionalLabel(id:any) {
     this._matStepperIntl.optionalLabel = this.optionalLabelText;
-    // Required for the optional label text to be updated
-    // Notifies the MatStepperIntl service that a change has been made
     this._matStepperIntl.changes.next();
-    console.log(this._matStepperIntl.optionalLabel );
-    console.log( this._matStepperIntl);
-    console.log(id);
+    // console.log(this._matStepperIntl.optionalLabel );
+    // console.log( this._matStepperIntl);
+    // console.log(id);
     this.answersQuestion={
     question:id,
     answer:this._matStepperIntl.optionalLabel 
 
     }
-
-
+    console.log(this.answersAllQuestions);
+    console.log(this.answersQuestion.question);
     this.answersAllQuestions.push(this.answersQuestion);
-      console.log(this.answersAllQuestions);
 
+
+// for(let i=0;i<this.answersAllQuestions.length;i++){
+  
+//   console.log(this.answersAllQuestions[i].question);
+//   console.log(this.answersQuestion.question);
+
+//   if(this.answersQuestion.question==this.answersAllQuestions[i].questions){
+//     this.answersAllQuestions[i]==this.answersQuestion;
+//     console.log('found');
+    
+//   }else{
+//     console.log('not found');
+    
+//     // this.answersAllQuestions.push(this.answersQuestion);
+
+//   }
+  
+// }
+
+
+
+
+
+    // this.answersAllQuestions.push(this.answersQuestion);
+      console.log(this.answersAllQuestions);
+ 
     
   }
 
 
 
-// joinQuizeCode(code:any){
-//   this.quizeServ.joinQuiz(code).subscribe({
-   
-    
-
-
-
-
-
-//     next: (res) => {
-//       console.log(res);
-   
-//       this.quizeServ.exameDetailes(this.dataCodeQuize,code);
-//     },
-//     error: (err) => {
-//       console.log(err);
-//       this._ToastrService.error(` join error : ${this.is_Messg}`);
-    
-
-//     },
-//     complete:()=>{
-//       // console.log('add complet');
-//   this._Router.navigate([`/dashboard/students/quizzes/exam`,code]);
-//   this._ToastrService.success(`join succes: ,${this.is_Messg}`)
-    
-//     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-//   })
-// }
 
 
 
 getquizWithoutAnswers(quize:any){
+
 
   this.quizeServ.getquizWithoutAnswers(quize).subscribe({
 
     next:(res)=>{
    console.log(res);
    this.questionsData=res.data.questions;
-  //  this.questions=res.data.questions;
    console.log(this.questionsData);
    
 
@@ -170,12 +155,14 @@ console.log(err);
 
 
 
-submit(quize:any){
+submit(){
 
 console.log(this.answersAllQuestions);
-console.log(quize);
+console.log(this._ActivatedRoute.snapshot.params?.['quiz']);
+let quizeA=this._ActivatedRoute.snapshot.params?.['quiz'];
+console.log(quizeA);
 
-this.quizeServ.submitQuiz(quize,this.answersAllQuestions).subscribe({
+this.quizeServ.submitQuiz(quizeA,this.answersAllQuestions).subscribe({
 
  next:(res)=>{
    console.log(res);

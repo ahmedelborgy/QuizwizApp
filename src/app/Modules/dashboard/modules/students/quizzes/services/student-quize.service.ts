@@ -38,13 +38,13 @@ return this.http.post(`quiz/join`,code);
       }
 
 
-      submitQuiz(code:string,data:any):Observable<any>{
+      submitQuiz(code:string,answers:any):Observable<any>{
         console.log(code);
-        console.log(data);
-        console.log(this.quizeDetailes.data);
+        console.log(answers);
+       
         
         
-        return this.http.post(`quiz/submit/${code}`,{data});
+        return this.http.post(`quiz/submit/${code}`,{answers});
           }
 
 

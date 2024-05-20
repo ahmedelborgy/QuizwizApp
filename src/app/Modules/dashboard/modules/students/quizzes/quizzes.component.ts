@@ -21,6 +21,7 @@ completedQuizes:any;
 
 is_Messg: any;
 dataCodeQuize:any;
+dataQuize:any;
 constructor(
   private quizeServ:StudentQuizeService,
   private _Router: Router,
@@ -81,6 +82,9 @@ getCompletedQuizzes() {
         this.is_Messg=res.message;
         this.dataCodeQuize=res.data;
         this.quizeServ.exameDetailes(this.dataCodeQuize,code);
+        this.dataQuize=res.data.quiz;
+        console.log(this.dataCodeQuize,this.dataQuize);
+        
       },
       error: (err) => {
         console.log(err);
@@ -89,8 +93,7 @@ getCompletedQuizzes() {
 
       },
       complete:()=>{
-        // console.log('add complet');
-    this._Router.navigate([`/dashboard/students/quizzes/exam`,code]);
+    this._Router.navigate([`/dashboard/students/quizzes/exam`,this.dataQuize]);
     this._ToastrService.success(`join succes: ,${this.is_Messg}`)
       
       }

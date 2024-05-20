@@ -9,12 +9,9 @@
 
 
 
-<p>{{quize}}</p>
-
 
 <mat-stepper  class=" w-75 m-auto" labelPosition="bottom" #stepper>
     <mat-step *ngFor="let item of questionsData" [stepControl]="firstFormGroup">
-   <p>{{item._id}}</p>
    <h4>{{item.title}} ?</h4>
 
 
@@ -23,17 +20,7 @@
    class="demo-radio-group"
    [(ngModel)]="optionalLabelText"
    (ngModelChange)="updateOptionalLabel(item._id)">
-   <!-- <mat-radio-button
-     class="demo-radio-button d-block"
-     *ngFor="let optionalLabelTextChoice of optionalLabelTextChoices"
-     [value]="optionalLabelTextChoice">
-     {{optionalLabelTextChoice}}
-
-
-
-
-     
-   </mat-radio-button> -->
+   
 
    <br><br>
 
@@ -80,7 +67,7 @@
       <div>
         <button mat-button matStepperPrevious>Back</button>
         <button mat-button (click)="stepper.reset()">Reset</button>
-        <button mat-button (click)="submit(quize)">submit</button>
+        <button mat-button (click)="submit()">submit</button>
 
       </div>
     </mat-step>

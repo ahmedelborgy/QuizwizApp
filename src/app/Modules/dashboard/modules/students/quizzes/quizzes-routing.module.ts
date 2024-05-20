@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '', component: QuizzesComponent },
 
   { path: 'exam', component: ExamComponent },
-  { path: 'exam/:x', component: ExamComponent },
+  { path: 'exam/:quiz', component: ExamComponent },
 
 
 
