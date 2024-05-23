@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { StudentQuizeService } from '../../../services/student-quize.service';
 import { MatStepperIntl } from '@angular/material/stepper';
+import { count } from 'rxjs';
 
 @Component({
   selector: 'app-exam',
@@ -19,7 +20,13 @@ export class ExamComponent implements OnInit {
  answersQuestion:any={};
 quize:string='';
 codeQuize:string='';
-
+is_Messg:string='';
+duration:number=2;
+startTimer:any;
+time:any;
+counter:number=0;
+secondes:number=0;
+s=60;
 
  optionalLabelTextChoices: string[] = ['Option 1', 'Option 2', 'Option 3'];
  questionsData:any= [
@@ -59,16 +66,15 @@ codeQuize:string='';
   ) {}
 
 ngOnInit(): void {
-  console.log(this.quizeServ.quizeDetailes);
-  console.log(this.quizeServ.quizeDetailes.data.quiz);
-  this.quize=this.quizeServ.quizeDetailes.data.quiz;
-  // this.getquizWithoutAnswers(this.quizeServ.quizeDetailes.data.quiz);
+  // console.log(this.quizeServ.quizeDetailes);
+  // console.log(this.quizeServ.quizeDetailes.data.quiz);
+  // this.quize=this.quizeServ.quizeDetailes.data.quiz;
   console.log(this.quize);
 this.codeQuize=this._ActivatedRoute.snapshot.params?.['quiz'];
 
 console.log(this.codeQuize);
 this.getquizWithoutAnswers(this.codeQuize);
-
+this.timer()
   
 }
 
@@ -88,31 +94,7 @@ this.getquizWithoutAnswers(this.codeQuize);
     console.log(this.answersQuestion.question);
     this.answersAllQuestions.push(this.answersQuestion);
 
-
-// for(let i=0;i<this.answersAllQuestions.length;i++){
-  
-//   console.log(this.answersAllQuestions[i].question);
-//   console.log(this.answersQuestion.question);
-
-//   if(this.answersQuestion.question==this.answersAllQuestions[i].questions){
-//     this.answersAllQuestions[i]==this.answersQuestion;
-//     console.log('found');
-    
-//   }else{
-//     console.log('not found');
-    
-//     // this.answersAllQuestions.push(this.answersQuestion);
-
-//   }
-  
-// }
-
-
-
-
-
-    // this.answersAllQuestions.push(this.answersQuestion);
-      console.log(this.answersAllQuestions);
+   console.log(this.answersAllQuestions);
  
     
   }
@@ -130,6 +112,8 @@ getquizWithoutAnswers(quize:any){
     next:(res)=>{
    console.log(res);
    this.questionsData=res.data.questions;
+  //  this.duration=res.data.duration;
+
    console.log(this.questionsData);
    
 
@@ -167,15 +151,17 @@ this.quizeServ.submitQuiz(quizeA,this.answersAllQuestions).subscribe({
  next:(res)=>{
    console.log(res);
 
-   console.log(res);
+   this.is_Messg=res.message;
    
 
     },
     error:(err)=>{
 console.log(err);
+this._ToastrService.error(` join error : ${this.is_Messg}`);
 
     },
     complete:()=>{
+      this._ToastrService.success(`join succes: ,${this.is_Messg}`)
 
     }
 
@@ -186,11 +172,81 @@ console.log(err);
 
 })
 }
+// timer(){
+  
+  
+// let timeing =setInterval(()=>{
+// console.log(this.counter);
+// this.counter++;
+// if (this.counter>=10) {
+//   clearInterval(timeing)
+
+// console.log('finishhh');
+
+// }
+//   },1000)
 
 
+
+
+// }
+
+ secondFun(){
+  console.log('kkk');
+ 
+  let sec=setInterval(()=>{
+    this.s--;
+    if(this.s==0){
+      clearInterval(sec);
+      
+       this.s=60;
+    }
+   
+    },1000);
+ }
+
+timer(){
+
+ 
+  
+ 
+
+  
+//  let sec=setInterval(()=>{
+//  this.s--;
+//  if(this.s==0)
+
+// clearInterval(sec)
+//  },1000)
+ 
+
+this.secondFun();
+  let timeing =setInterval(()=>{
+  console.log(this.counter);
+  console.log(this.duration);
+  this.duration--;
+  this.secondFun();
+
+  if (this.duration==0) {
+  clearInterval(timeing)
+    
+  console.log('finishhh');
+
+  }
+  
+    },1000*60);
+  
+  
+  
+  
+  }
 
 
  
 }
 
+
+function secondFun(arg0: () => void) {
+  throw new Error('Function not implemented.');
+}
 

@@ -29,7 +29,6 @@ console.log(code);
 
 return this.http.post(`quiz/join`,code);
   }
-  // quiz/without-answers/6642e4ef58f7023d5eff1857
 
   getquizWithoutAnswers(quize:string):Observable<any>{
    
